@@ -1,2 +1,1 @@
-# Afaq-Website
-AFAQ student recruitment agency website
+# AFAQ Website - Responsive landing page
