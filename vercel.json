@@ -1,7 +1,0 @@
-{
-  "buildCommand": "",
-  "outputDirectory": "static",
-  "env": {
-    "VERCEL_URL": "@vercel_url"
-  }
-}
