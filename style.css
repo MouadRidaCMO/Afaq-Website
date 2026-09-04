@@ -173,9 +173,9 @@ section {
     display: block;
     width: 110px;
     height: 110px;
-    /* negative bottom margin absorbs the icon's transparent padding and the
-       h1's leading, so the cap sits right on top of the headline */
-    margin: 0 auto -0.5rem;
+    /* push the cap down 28px, then take the same 28px off the bottom so the
+       headline stays exactly where it was — only the cap moves */
+    margin: 28px auto calc(var(--spacing-sm) - 28px);
     filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.28));
 }
 
