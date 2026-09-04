@@ -1,0 +1,11 @@
+{
+  "name": "afaq-website",
+  "version": "1.0.0",
+  "description": "AFAQ - Student recruitment agency website",
+  "scripts": {
+    "build": "echo 'No build needed - static site'"
+  },
+  "keywords": ["afaq", "university", "recruitment"],
+  "author": "Mouad Rida",
+  "license": "MIT"
+}
