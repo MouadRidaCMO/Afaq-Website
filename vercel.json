@@ -3,7 +3,7 @@
   "public": true,
   "buildCommand": "npm run build",
   "outputDirectory": ".",
-  "cleanUrls": true,
+  "cleanUrls": false,
   "trailingSlash": false,
   "headers": [
     {
@@ -14,12 +14,6 @@
           "value": "public, max-age=3600"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
     }
   ]
 }
