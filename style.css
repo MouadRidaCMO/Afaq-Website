@@ -105,6 +105,11 @@ section {
     z-index: 100;
 }
 
+/* wider than the body container so the wordmark sits nearer the edge */
+.header .container {
+    max-width: 1560px;
+}
+
 .nav-container {
     display: flex;
     justify-content: space-between;
