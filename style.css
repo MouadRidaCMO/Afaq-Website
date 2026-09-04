@@ -153,6 +153,80 @@ section {
     color: var(--primary-blue);
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* ---- language switcher ---- */
+
+.lang-switch {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(18, 63, 146, 0.18);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.lang-switch button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 0.35rem 0.7rem;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-gray);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.lang-switch button:hover {
+    color: var(--primary-blue);
+}
+
+.lang-switch button.is-active {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+/* ---- mobile menu button ---- */
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    padding: 0 9px;
+    border: 1px solid rgba(18, 63, 146, 0.18);
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 2px;
+    background-color: var(--primary-blue);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.nav-toggle.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* ============================================
    HERO SECTION
    ============================================ */
@@ -476,9 +550,36 @@ section {
         font-size: 1.5rem;
     }
 
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* the panel drops out of the sticky header, which is its containing block */
+    .nav-panel {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        border-bottom: 1px solid rgba(18, 63, 146, 0.08);
+        box-shadow: 0 12px 24px rgba(18, 63, 146, 0.08);
+        padding: var(--spacing-xs) 0 var(--spacing-sm);
+    }
+
+    .nav-panel.is-open {
+        display: block;
+    }
+
     .nav-links {
-        gap: var(--spacing-md);
-        font-size: 0.9rem;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.85rem var(--spacing-md);
+        font-size: 1rem;
     }
 
     .logo-img {
@@ -499,7 +600,7 @@ section {
     }
 
     .timeline-item {
-        text-align: left;
+        text-align: start;
     }
 
     .why-grid {
@@ -521,17 +622,6 @@ section {
 }
 
 @media (max-width: 480px) {
-    .nav-container {
-        flex-wrap: wrap;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-        width: 100%;
-        margin-top: var(--spacing-md);
-    }
-
     h1 {
         font-size: 1.5rem;
     }
@@ -573,6 +663,91 @@ section {
         height: 50px;
         font-size: 1.25rem;
     }
+}
+
+/* ============================================
+   LEGAL PAGES
+   ============================================ */
+
+.legal-back {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-gray);
+}
+
+.legal-page {
+    padding: var(--spacing-2xl) 0;
+}
+
+.legal-page .container {
+    max-width: 780px;
+}
+
+.legal-page h1 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.legal-page h2 {
+    font-size: 1.35rem;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.legal-updated {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.legal-notice {
+    background-color: #fdf6e3;
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 6px;
+    padding: var(--spacing-md);
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.legal-page ul {
+    margin: 0 0 var(--spacing-md);
+    padding-left: 1.25rem;
+    color: var(--text-gray);
+}
+
+.legal-page li {
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.7;
+}
+
+.legal-back-link {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(18, 63, 146, 0.1);
+    font-weight: 500;
+}
+
+/* ============================================
+   ARABIC / RTL
+   dir="rtl" is set on <html> by app.js, so flexbox and grid mirror
+   themselves — only direction-specific decoration needs overriding.
+   ============================================ */
+
+[dir="rtl"] body,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4 {
+    font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+}
+
+[dir="rtl"] body {
+    line-height: 1.9;
+}
+
+[dir="rtl"] .why-item {
+    border-left: 0;
+    border-right: 4px solid var(--primary-blue);
 }
 
 /* ============================================
