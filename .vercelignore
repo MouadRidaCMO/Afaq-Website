@@ -2,3 +2,6 @@
 node_modules
 .DS_Store
 *.log
+
+# original full-res artwork — kept in the repo as source, not deployed
+Afaq - *.png

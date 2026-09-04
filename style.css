@@ -117,10 +117,7 @@ section {
 }
 
 .logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--primary-blue);
+    display: inline-block;
     transition: transform 0.3s ease;
 }
 
@@ -128,55 +125,10 @@ section {
     transform: scale(1.03);
 }
 
-.logo-mark {
-    width: 52px;
-    height: 52px;
-    flex-shrink: 0;
-}
-
-.logo-lockup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.logo-name {
-    font-family: var(--serif-font);
-    font-size: 1.65rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    line-height: 1;
-    color: var(--primary-blue);
-}
-
-.logo-rule {
-    position: relative;
-    width: 100%;
-    height: 1px;
-    background: var(--accent-gold);
-    margin: 0.35rem 0 0.3rem;
-}
-
-.logo-rule::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent-gold);
-    box-shadow: 0 0 0 3px var(--white);
-}
-
-.logo-tagline {
-    font-family: 'Cairo', var(--sans-font);
-    font-size: 0.8rem;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--accent-gold);
-    direction: rtl;
+.logo-img {
+    display: block;
+    height: 64px;
+    width: auto;
 }
 
 .nav-links {
@@ -518,18 +470,8 @@ section {
         font-size: 0.9rem;
     }
 
-    .logo-mark {
-        width: 42px;
-        height: 42px;
-    }
-
-    .logo-name {
-        font-size: 1.3rem;
-        letter-spacing: 3px;
-    }
-
-    .logo-tagline {
-        font-size: 0.7rem;
+    .logo-img {
+        height: 48px;
     }
 
     .hero-mark {
