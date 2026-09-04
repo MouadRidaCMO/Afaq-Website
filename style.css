@@ -170,9 +170,12 @@ section {
 }
 
 .hero-mark {
+    display: block;
     width: 110px;
     height: 110px;
-    margin-bottom: var(--spacing-sm);
+    /* negative bottom margin absorbs the icon's transparent padding and the
+       h1's leading, so the cap sits right on top of the headline */
+    margin: 0 auto -0.5rem;
     filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.28));
 }
 
