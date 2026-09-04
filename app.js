@@ -11,12 +11,19 @@
 const AR = {
     'nav.services': 'الخدمات',
     'nav.process': 'المسار',
+    'nav.why': 'لماذا آفاق',
     'nav.contact': 'اتصل بنا',
 
+    'hero.eyebrow': 'الدراسة في المجر',
     'hero.title': 'مستقبل بلا حدود',
     'hero.subtitle': 'شريكك للالتحاق بأفضل الجامعات المجرية',
     'hero.description': 'تساعد آفاق الطلبة المغاربة المتميزين على الوصول إلى فرص الدراسات العليا في المجر، مع مواكبة شاملة قبل التسجيل وأثناءه وبعده.',
     'hero.cta': 'ابدأ رحلتك',
+    'hero.cta2': 'اكتشف خدماتنا',
+    'hero.trust': 'من الترشيح إلى الاستقرار — مُحاور واحد',
+    'hero.card1': 'المغرب · المجر',
+    'hero.card2': 'Stipendium Hungaricum',
+    'hero.card3': 'مواكبة من الألف إلى الياء',
 
     'services.title': 'خدماتنا',
     'services.subtitle': 'مواكبة شاملة طوال مسارك',
@@ -45,6 +52,7 @@ const AR = {
     'process.4.body': 'خلال دراستك وبعدها، نبقى شركاءك في الاستقرار والأسئلة الأكاديمية والتطور المهني.',
 
     'why.title': 'لماذا تختار آفاق',
+    'why.subtitle': 'ما يميّزنا عن مجرد وسيط',
     'why.1.title': 'خبرة ميدانية',
     'why.1.body': 'مؤسسونا يعرفون المجر وجامعاتها ومسار الطالب فيها، ونفهم التحديات الخاصة بالطلبة المغاربة.',
     'why.2.title': 'اختيار قائم على الجودة',
@@ -55,10 +63,10 @@ const AR = {
     'why.4.body': 'علاقتنا لا تنتهي عند وصولك. ندعمك طوال دراستك وفي انتقالك إلى الحياة المهنية.',
 
     'cta.title': 'مستعد للانطلاق؟',
-    'cta.deadline': 'يفتح باب الترشيح لمنحة Stipendium Hungaricum 2027 يوم 15 نونبر 2026.',
+    'cta.deadline': 'ترشيحات Stipendium Hungaricum 2027 — تفتح في 15 نونبر 2026',
     'cta.body': 'تواصل معنا الآن للحصول على استشارة مجانية، واكتشف كيف يمكن لآفاق أن تغيّر مستقبلك الدراسي.',
-    'cta.email': 'تواصل معنا',
-    'cta.whatsapp': 'واتساب',
+    'cta.email': 'أرسل لنا بريداً إلكترونياً',
+    'cta.whatsapp': 'راسلنا على واتساب',
 
     'footer.blurb': 'شريكك للالتحاق بأفضل الجامعات المجرية.',
     'footer.nav': 'روابط',
@@ -151,5 +159,40 @@ function initMenu() {
     });
 }
 
+function initReveal() {
+    const items = document.querySelectorAll('.reveal');
+    if (!items.length) return;
+
+    // Only opt into the hidden-then-reveal styling once we know JS is running,
+    // so a script failure can never leave the page blank.
+    document.documentElement.classList.add('js-reveal');
+
+    if (!('IntersectionObserver' in window)) {
+        items.forEach(el => el.classList.add('is-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);   // reveal once, don't re-animate on scroll back
+        });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+
+    items.forEach(el => observer.observe(el));
+}
+
+function initHeaderShadow() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    const update = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+}
+
 initLang();
 initMenu();
+initReveal();
+initHeaderShadow();

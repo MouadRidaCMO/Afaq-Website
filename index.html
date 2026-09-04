@@ -6,6 +6,9 @@
     <title>AFAQ - Un Avenir, Sans Limites</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -24,6 +27,7 @@
                     <ul class="nav-links">
                         <li><a href="#services" data-i18n="nav.services">Services</a></li>
                         <li><a href="#process" data-i18n="nav.process">Processus</a></li>
+                        <li><a href="#why" data-i18n="nav.why">Pourquoi AFAQ</a></li>
                         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
                     </ul>
                 </div>
@@ -44,13 +48,38 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
         <div class="container">
-            <div class="hero-content">
-                <img src="favicon.png" alt="" class="hero-mark" width="512" height="512">
-                <h1 data-i18n="hero.title">Un Avenir, Sans Limites</h1>
-                <p class="hero-subtitle" data-i18n="hero.subtitle">Votre partenaire pour intégrer les meilleures universités hongroises</p>
-                <p class="hero-description" data-i18n="hero.description">AFAQ aide les étudiants marocains talentueux à accéder à des opportunités d'études supérieures en Hongrie, avec un accompagnement complet avant, pendant et après l'inscription.</p>
-                <a href="#contact" class="cta-button" data-i18n="hero.cta">Commencer votre parcours</a>
+            <div class="hero-grid">
+                <div class="hero-content reveal">
+                    <span class="hero-eyebrow" data-i18n="hero.eyebrow">Étudier en Hongrie</span>
+                    <h1 data-i18n="hero.title">Un Avenir, Sans Limites</h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">Votre partenaire pour intégrer les meilleures universités hongroises</p>
+                    <p class="hero-description" data-i18n="hero.description">AFAQ aide les étudiants marocains talentueux à accéder à des opportunités d'études supérieures en Hongrie, avec un accompagnement complet avant, pendant et après l'inscription.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="cta-button primary" data-i18n="hero.cta">Commencer votre parcours</a>
+                        <a href="#services" class="cta-button ghost" data-i18n="hero.cta2">Découvrir nos services</a>
+                    </div>
+                    <p class="hero-trust" data-i18n="hero.trust">De la candidature à votre installation — un seul interlocuteur</p>
+                </div>
+
+                <div class="hero-visual reveal" style="--reveal-delay: .15s">
+                    <div class="medallion" aria-hidden="true">
+                        <img src="favicon.png" alt="" class="medallion-mark" width="512" height="512">
+                    </div>
+                    <div class="float-card float-card--1">
+                        🇲🇦 → 🇭🇺
+                        <small data-i18n="hero.card1">Maroc · Hongrie</small>
+                    </div>
+                    <div class="float-card float-card--2">
+                        🎓
+                        <small data-i18n="hero.card2">Stipendium Hungaricum</small>
+                    </div>
+                    <div class="float-card float-card--3">
+                        🤝
+                        <small data-i18n="hero.card3">Accompagnement A → Z</small>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -58,41 +87,43 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 data-i18n="services.title">Nos Services</h2>
-            <p class="section-subtitle" data-i18n="services.subtitle">Un accompagnement complet tout au long de votre parcours</p>
+            <div class="section-head reveal">
+                <h2 data-i18n="services.title">Nos Services</h2>
+                <p class="section-subtitle" data-i18n="services.subtitle">Un accompagnement complet tout au long de votre parcours</p>
+            </div>
 
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon">📋</div>
                     <h3 data-i18n="services.1.title">Sélection &amp; Candidature</h3>
                     <p data-i18n="services.1.body">Nous analysons votre profil pour vous proposer les programmes universitaires hongrois les mieux adaptés à vos ambitions académiques et professionnelles.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card reveal" style="--reveal-delay: .08s">
                     <div class="service-icon">🏠</div>
                     <h3 data-i18n="services.2.title">Logement</h3>
                     <p data-i18n="services.2.body">Aide à la recherche et à la sécurisation de votre accommodation en Hongrie, près de votre université.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card reveal" style="--reveal-delay: .16s">
                     <div class="service-icon">🏦</div>
                     <h3 data-i18n="services.3.title">Compte Bancaire &amp; Finances</h3>
                     <p data-i18n="services.3.body">Assistance pour ouvrir un compte bancaire local, gérer votre budget étudiant et accéder aux aides financières disponibles.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon">📱</div>
                     <h3 data-i18n="services.4.title">Cartes SIM &amp; Télécommunications</h3>
                     <p data-i18n="services.4.body">Configuration rapide de vos services de télécommunication et numéro de téléphone local.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card reveal" style="--reveal-delay: .08s">
                     <div class="service-icon">📄</div>
                     <h3 data-i18n="services.5.title">Visa &amp; Résidence</h3>
                     <p data-i18n="services.5.body">Guidance complète pour l'obtention de votre visa d'études et de votre permis de résidence en Hongrie.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card reveal" style="--reveal-delay: .16s">
                     <div class="service-icon">💼</div>
                     <h3 data-i18n="services.6.title">Placement Professionnel</h3>
                     <p data-i18n="services.6.body">Soutien pour stages, emplois d'étudiant et transition vers votre première carrière après vos études.</p>
@@ -104,29 +135,31 @@
     <!-- Process Section -->
     <section id="process" class="process">
         <div class="container">
-            <h2 data-i18n="process.title">Notre Processus</h2>
-            <p class="section-subtitle" data-i18n="process.subtitle">Quatre étapes simples pour réussir votre inscription</p>
+            <div class="section-head reveal">
+                <h2 data-i18n="process.title">Notre Processus</h2>
+                <p class="section-subtitle" data-i18n="process.subtitle">Quatre étapes simples pour réussir votre inscription</p>
+            </div>
 
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-number">1</div>
                     <h3 data-i18n="process.1.title">Consultation Initiale</h3>
                     <p data-i18n="process.1.body">Vous nous partagez votre profil académique, vos intérêts et vos objectifs. Nous discutons des opportunités qui vous correspondent le mieux.</p>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item reveal" style="--reveal-delay: .1s">
                     <div class="timeline-number">2</div>
                     <h3 data-i18n="process.2.title">Sélection &amp; Candidature</h3>
                     <p data-i18n="process.2.body">Nous préparons votre dossier de candidature complet pour les universités sélectionnées. Support total pour les démarches administratives.</p>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item reveal" style="--reveal-delay: .2s">
                     <div class="timeline-number">3</div>
                     <h3 data-i18n="process.3.title">Acceptation &amp; Préparation</h3>
                     <p data-i18n="process.3.body">Une fois accepté, nous vous aidons pour les formalités de visa, logement, et tous les préparatifs pour votre départ.</p>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item reveal" style="--reveal-delay: .3s">
                     <div class="timeline-number">4</div>
                     <h3 data-i18n="process.4.title">Support Continu</h3>
                     <p data-i18n="process.4.body">Durant vos études et après, nous restons vos partenaires pour votre installation, vos questions académiques et votre développement professionnel.</p>
@@ -136,27 +169,30 @@
     </section>
 
     <!-- Why AFAQ Section -->
-    <section class="why-afaq">
+    <section id="why" class="why-afaq">
         <div class="container">
-            <h2 data-i18n="why.title">Pourquoi Choisir AFAQ</h2>
+            <div class="section-head reveal">
+                <h2 data-i18n="why.title">Pourquoi Choisir AFAQ</h2>
+                <p class="section-subtitle" data-i18n="why.subtitle">Ce qui nous distingue d'un simple intermédiaire</p>
+            </div>
 
             <div class="why-grid">
-                <div class="why-item">
+                <div class="why-item reveal">
                     <h3 data-i18n="why.1.title">Expertise Locale</h3>
                     <p data-i18n="why.1.body">Nos fondateurs connaissent la Hongrie, les universités et le parcours étudiant. Nous comprenons les défis spécifiques des étudiants marocains.</p>
                 </div>
 
-                <div class="why-item">
+                <div class="why-item reveal" style="--reveal-delay: .08s">
                     <h3 data-i18n="why.2.title">Sélection Qualité</h3>
                     <p data-i18n="why.2.body">Nous priorisons votre meilleur fit académique et professionnel, pas le simple placement. Votre succès est notre succès.</p>
                 </div>
 
-                <div class="why-item">
+                <div class="why-item reveal" style="--reveal-delay: .16s">
                     <h3 data-i18n="why.3.title">Accompagnement Complet</h3>
                     <p data-i18n="why.3.body">Au-delà de l'inscription, nous gérons votre accommodation, vos finances, vos documents administratifs. Tout ce qui vous permet de réussir.</p>
                 </div>
 
-                <div class="why-item">
+                <div class="why-item reveal" style="--reveal-delay: .24s">
                     <h3 data-i18n="why.4.title">Support Durable</h3>
                     <p data-i18n="why.4.body">Notre relation ne s'arrête pas à votre arrivée. Nous vous soutenons tout au long de vos études et pour votre transition professionnelle.</p>
                 </div>
@@ -166,13 +202,16 @@
 
     <!-- CTA Section -->
     <section id="contact" class="cta-section">
+        <div class="hero-glow" aria-hidden="true"></div>
         <div class="container">
-            <h2 data-i18n="cta.title">Prêt à Commencer?</h2>
-            <p data-i18n="cta.deadline">La fenêtre de candidature pour la Bourse Stipendium Hungaricum 2027 ouvre le 15 novembre 2026.</p>
-            <p class="cta-subtitle" data-i18n="cta.body">Contactez-nous dès maintenant pour une consultation gratuite et découvrez comment AFAQ peut transformer votre avenir académique.</p>
-            <div class="cta-buttons">
-                <a href="mailto:contact@afaq.study" class="cta-button primary" data-i18n="cta.email">Nous Contacter</a>
-                <a href="https://wa.me/36707579165" class="cta-button secondary" target="_blank" rel="noopener" data-i18n="cta.whatsapp">WhatsApp</a>
+            <div class="reveal">
+                <span class="cta-deadline" data-i18n="cta.deadline">Candidatures Stipendium Hungaricum 2027 — ouverture le 15 novembre 2026</span>
+                <h2 data-i18n="cta.title">Prêt à Commencer?</h2>
+                <p class="cta-subtitle" data-i18n="cta.body">Contactez-nous dès maintenant pour une consultation gratuite et découvrez comment AFAQ peut transformer votre avenir académique.</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/36707579165" class="cta-button primary" target="_blank" rel="noopener" data-i18n="cta.whatsapp">Écrire sur WhatsApp</a>
+                    <a href="mailto:contact@afaq.study" class="cta-button secondary" data-i18n="cta.email">Nous envoyer un email</a>
+                </div>
             </div>
         </div>
     </section>
@@ -182,7 +221,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>AFAQ</h4>
+                    <div class="footer-brand">
+                        <img src="favicon.png" alt="" width="512" height="512">
+                        <span>AFAQ</span>
+                    </div>
                     <p data-i18n="footer.blurb">Votre partenaire pour intégrer les meilleures universités hongroises.</p>
                 </div>
                 <div class="footer-section">
@@ -190,6 +232,7 @@
                     <ul>
                         <li><a href="#services" data-i18n="nav.services">Services</a></li>
                         <li><a href="#process" data-i18n="nav.process">Processus</a></li>
+                        <li><a href="#why" data-i18n="nav.why">Pourquoi AFAQ</a></li>
                         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
                         <li><a href="/privacy.html" data-i18n="footer.privacy">Politique de confidentialité</a></li>
                     </ul>
