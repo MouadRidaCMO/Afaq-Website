@@ -99,7 +99,7 @@ section {
 
 .header {
     background-color: var(--white);
-    border-bottom: 2px solid var(--accent-gold);
+    border-bottom: 1px solid rgba(18, 63, 146, 0.08);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -109,7 +109,7 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-sm) 0;
 }
 
 .logo-section {
@@ -127,23 +127,25 @@ section {
 
 .logo-img {
     display: block;
-    height: 64px;
+    height: 44px;
     width: auto;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
 }
 
 .nav-links a {
+    font-size: 0.95rem;
     font-weight: 500;
+    color: var(--dark-gray);
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--accent-gold);
+    color: var(--primary-blue);
 }
 
 /* ============================================
@@ -163,11 +165,12 @@ section {
 }
 
 .hero-mark {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     margin-bottom: var(--spacing-sm);
     filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.28));
 }
+
 
 .hero h1 {
     color: var(--white);
@@ -471,12 +474,12 @@ section {
     }
 
     .logo-img {
-        height: 48px;
+        height: 36px;
     }
 
     .hero-mark {
-        width: 90px;
-        height: 90px;
+        width: 84px;
+        height: 84px;
     }
 
     .services-grid {
