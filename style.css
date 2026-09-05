@@ -843,111 +843,171 @@ section {
 
 /* ============================================
    PROCESS SECTION
+   A dark band in the page rhythm, with a vertical spine that fills to match
+   scroll progress and cards alternating either side of it.
    ============================================ */
 
 .process {
-    background-color: var(--white);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(168deg, #14459e 0%, var(--primary-blue) 48%, var(--deep-blue) 100%);
+    color: var(--white);
 }
 
-.timeline {
+.process .container {
+    position: relative;
+    z-index: 1;
+}
+
+.process .section-head h2 {
+    color: var(--white);
+}
+
+.process .section-subtitle {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.steps {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.steps-track {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.16);
+    border-radius: 2px;
+}
+
+/* height is driven by --progress, set from scroll position in app.js */
+.steps-fill {
+    display: block;
+    width: 100%;
+    height: calc(var(--progress, 0) * 100%);
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--accent-gold), #e2c56d);
+    box-shadow: 0 0 18px rgba(201, 168, 76, 0.65);
+}
+
+.step {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-md);
-}
-
-/* connector sitting behind the markers; it draws itself in on scroll */
-.timeline-line {
-    position: absolute;
-    top: 34px;
-    left: 12.5%;
-    right: 12.5%;
-    height: 2px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, rgba(201, 168, 76, 0.12),
-        var(--accent-gold) 20%, var(--accent-gold) 80%, rgba(201, 168, 76, 0.12));
-}
-
-.js-reveal .timeline-line {
-    opacity: 0;
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: opacity 0.35s ease, transform 1.15s var(--ease-out) 0.1s;
-}
-
-.js-reveal .timeline-line.is-visible {
-    opacity: 1;
-    transform: scaleX(1);
-}
-
-[dir="rtl"] .js-reveal .timeline-line {
-    transform-origin: right center;
-}
-
-.timeline-item {
-    position: relative;
-    padding: 0 var(--spacing-sm);
-    text-align: center;
-}
-
-.timeline-number {
-    position: relative;
-    display: inline-flex;
+    grid-template-columns: 1fr 96px 1fr;
     align-items: center;
-    justify-content: center;
-    width: 68px;
-    height: 68px;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+.step-marker {
+    grid-column: 2;
+    justify-self: center;
+    display: grid;
+    place-items: center;
+    width: 62px;
+    height: 62px;
     border-radius: 50%;
-    background: linear-gradient(145deg, #e2c56d, var(--accent-gold) 45%, #a9821f);
-    color: var(--primary-blue);
+    background-color: var(--deep-blue);
+    border: 1px solid rgba(201, 168, 76, 0.45);
+    color: var(--accent-gold);
     font-family: var(--serif-font);
-    font-size: 1.55rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    box-shadow: 0 0 0 9px var(--white), 0 0 0 10px rgba(201, 168, 76, 0.26),
-                0 12px 26px rgba(201, 168, 76, 0.32);
-    transition: transform 0.45s var(--ease-out), box-shadow 0.45s ease;
+    transition: transform 0.45s var(--ease-out), background 0.45s ease,
+                color 0.45s ease, box-shadow 0.45s ease;
 }
 
-/* each marker pops once the connector has run past it */
-.js-reveal .timeline-item .timeline-number {
-    opacity: 0;
-    transform: scale(0.55);
-    transition: opacity 0.4s ease,
-                transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
-    transition-delay: calc(var(--reveal-delay, 0s) + 0.3s);
+.step-card {
+    position: relative;
+    grid-column: 1;
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+    transition: transform 0.45s var(--ease-out), background 0.45s ease,
+                border-color 0.45s ease, box-shadow 0.45s ease;
 }
 
-.js-reveal .timeline-item.is-visible .timeline-number {
-    opacity: 1;
-    transform: none;
+.step--right .step-card {
+    grid-column: 3;
 }
 
-/* second selector outranks the reveal rule above, which also sets transform */
-.timeline-item:hover .timeline-number,
-.js-reveal .timeline-item.is-visible:hover .timeline-number {
-    transform: translateY(-5px) scale(1.06);
-    box-shadow: 0 0 0 9px var(--white), 0 0 0 10px rgba(201, 168, 76, 0.5),
-                0 18px 34px rgba(201, 168, 76, 0.42);
+.step-index {
+    position: absolute;
+    top: -0.8rem;
+    inset-inline-end: 0.5rem;
+    font-family: var(--serif-font);
+    font-size: 4.8rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.07);
+    pointer-events: none;
 }
 
-.timeline-item h3 {
+.step-card h3,
+.step-card p {
+    position: relative;
+}
+
+.step-card h3 {
+    color: var(--white);
     margin-bottom: var(--spacing-xs);
-    transition: color 0.35s ease;
 }
 
-.timeline-item:hover h3 {
-    color: #a9821f;
-}
-
-.timeline-item p {
+.step-card p {
+    color: rgba(255, 255, 255, 0.78);
     font-size: 0.95rem;
     line-height: 1.75;
     margin-bottom: 0;
 }
 
+.step:hover .step-card {
+    transform: translateY(-4px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(201, 168, 76, 0.45);
+    box-shadow: 0 22px 46px rgba(0, 0, 0, 0.3);
+}
+
+.step:hover .step-marker {
+    transform: scale(1.09);
+    background: linear-gradient(145deg, #e2c56d, var(--accent-gold));
+    color: var(--primary-blue);
+    box-shadow: 0 0 0 8px rgba(201, 168, 76, 0.14), 0 12px 26px rgba(201, 168, 76, 0.4);
+}
+
+/* steps slide in from the side they sit on */
+.js-reveal .step--left {
+    transform: translateX(-36px);
+}
+
+.js-reveal .step--right {
+    transform: translateX(36px);
+}
+
+.js-reveal .step.is-visible {
+    transform: none;
+}
+
+[dir="rtl"] .js-reveal .step--left {
+    transform: translateX(36px);
+}
+
+[dir="rtl"] .js-reveal .step--right {
+    transform: translateX(-36px);
+}
+
 /* ============================================
    WHY AFAQ SECTION
+   Bento rather than four equal boxes: a dark feature tile, two squares,
+   then a wide closer.
    ============================================ */
 
 .why-afaq {
@@ -956,45 +1016,32 @@ section {
 
 .why-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
+}
+
+.why-item--feature,
+.why-item--wide {
+    grid-column: span 2;
 }
 
 .why-item {
     position: relative;
-    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
     background-color: var(--white);
     border: 1px solid var(--hairline);
-    border-radius: 16px;
+    border-radius: 18px;
     overflow: hidden;
     transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease,
                 border-color 0.4s ease;
 }
 
-/* gold rule that wipes across the foot of the card on hover */
-.why-item::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-gold), #e2c56d);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.45s var(--ease-out);
-}
-
-[dir="rtl"] .why-item::after {
-    transform-origin: right;
-}
-
-.why-item:hover::after {
-    transform: scaleX(1);
-}
-
 .why-item:hover {
     transform: translateY(-6px);
     border-color: rgba(201, 168, 76, 0.4);
-    box-shadow: 0 22px 44px rgba(18, 63, 146, 0.13);
+    box-shadow: 0 22px 44px rgba(18, 63, 146, 0.14);
 }
 
 .why-icon {
@@ -1028,6 +1075,51 @@ section {
     font-size: 0.93rem;
     line-height: 1.7;
     margin-bottom: 0;
+}
+
+/* ---- the dark feature tile ---- */
+
+.why-item--feature {
+    background: linear-gradient(150deg, #14459e 0%, var(--primary-blue) 45%, var(--deep-blue) 100%);
+    border-color: rgba(201, 168, 76, 0.28);
+}
+
+.why-item--feature h3 {
+    color: var(--white);
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+}
+
+.why-item--feature p {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1rem;
+    max-width: 46rem;
+}
+
+.why-item--feature .why-icon {
+    width: 62px;
+    height: 62px;
+    background-color: rgba(201, 168, 76, 0.18);
+    color: var(--accent-gold);
+}
+
+.why-item--feature .why-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.why-item--feature:hover .why-icon {
+    background: linear-gradient(140deg, #e2c56d, var(--accent-gold));
+    color: var(--primary-blue);
+}
+
+/* ---- the wide closer, a warm tint rather than plain white ---- */
+
+.why-item--wide {
+    background: linear-gradient(115deg, rgba(201, 168, 76, 0.12), var(--white) 58%);
+}
+
+.why-item--wide p {
+    max-width: 46rem;
 }
 
 /* ============================================
@@ -1305,14 +1397,39 @@ section {
         aspect-ratio: 4 / 3;
     }
 
-    .timeline-line {
-        display: none;
+    /* spine moves to the edge and every card sits beside it */
+    .steps-track {
+        left: 27px;
     }
 
-    /* four fixed columns get cramped before the layout goes single file */
-    .timeline {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: var(--spacing-xl);
+    .step {
+        grid-template-columns: 54px 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .step-marker {
+        grid-column: 1;
+        width: 54px;
+        height: 54px;
+        font-size: 0.95rem;
+    }
+
+    .step-card,
+    .step--right .step-card {
+        grid-column: 2;
+    }
+
+    .js-reveal .step--left,
+    .js-reveal .step--right,
+    [dir="rtl"] .js-reveal .step--left,
+    [dir="rtl"] .js-reveal .step--right {
+        transform: translateY(24px);
+    }
+
+    [dir="rtl"] .steps-track {
+        left: auto;
+        right: 27px;
+        transform: translateX(50%);
     }
 
     .scholarship-grid {
@@ -1363,7 +1480,6 @@ section {
     }
 
     .services-grid,
-    .timeline,
     .why-grid,
     .uni-grid {
         grid-template-columns: 1fr;
@@ -1396,10 +1512,22 @@ section {
         font-size: 1.3rem;
     }
 
-    .timeline-number {
-        width: 56px;
-        height: 56px;
-        font-size: 1.3rem;
+    .step-marker {
+        width: 46px;
+        height: 46px;
+        font-size: 0.85rem;
+    }
+
+    .steps-track {
+        left: 23px;
+    }
+
+    .step {
+        grid-template-columns: 46px 1fr;
+    }
+
+    .step-index {
+        font-size: 3.4rem;
     }
 }
 

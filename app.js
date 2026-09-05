@@ -417,6 +417,34 @@ function initReveal() {
     window.addEventListener('scroll', onScroll, { passive: true });
 }
 
+function initStepProgress() {
+    const steps = document.querySelector('.steps');
+    const fill = steps && steps.querySelector('.steps-fill');
+    if (!fill) return;
+
+    // Fill the spine in step with how far the reader has moved through the
+    // list, rather than animating it once. Starts when the list is a little
+    // below the fold and completes as its foot clears the lower third.
+    let queued = false;
+    const measure = () => {
+        queued = false;
+        const r = steps.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const span = r.height + vh * 0.45;
+        const p = (vh * 0.8 - r.top) / (span || 1);
+        fill.style.height = (Math.min(1, Math.max(0, p)) * 100).toFixed(2) + '%';
+    };
+    const onScroll = () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(measure);
+    };
+
+    measure();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+}
+
 function initHeaderShadow() {
     const header = document.querySelector('.header');
     if (!header) return;
@@ -429,4 +457,5 @@ function initHeaderShadow() {
 initLang();
 initMenu();
 initReveal();
+initStepProgress();
 initHeaderShadow();
