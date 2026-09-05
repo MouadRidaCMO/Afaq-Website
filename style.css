@@ -307,7 +307,7 @@ section {
     background-image: image-set(url('images/hero/graduation.avif') type('image/avif'),
                                 url('images/hero/graduation.jpg') type('image/jpeg'));
     background-size: cover;
-    background-position: center 35%;
+    background-position: center 62%;
     color: var(--white);
     padding: calc(var(--spacing-2xl) + 1.5rem) 0;
 }
