@@ -190,6 +190,9 @@ section {
     display: block;
     height: 44px;
     width: auto;
+    /* the artwork's tassel weights it visually high, so nudge it down to sit
+       on the same optical line as the nav links */
+    transform: translateY(4px);
 }
 
 .nav-links {
@@ -385,7 +388,25 @@ section {
     background-color: rgba(201, 168, 76, 0.8);
 }
 
-/* ---- hero visual: medallion + floating fact cards ---- */
+/* ---- hero visual ----
+   Single column until the photograph is in place. Dropping the .hero--solo
+   class from the markup restores the two column layout below. */
+
+.hero--solo {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero--solo .hero-description {
+    margin-inline: auto;
+}
+
+.hero--solo .hero-actions,
+.hero--solo .hero-trust {
+    justify-content: center;
+}
 
 .hero-visual {
     position: relative;
@@ -394,89 +415,20 @@ section {
     min-height: 400px;
 }
 
-.medallion {
-    position: relative;
-    width: min(340px, 78%);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.03));
-    border: 1px solid rgba(201, 168, 76, 0.34);
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3), inset 0 0 70px rgba(201, 168, 76, 0.07);
+.hero-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.32);
 }
 
-/* two slowly counter-rotating dashed rings */
-.medallion::before,
-.medallion::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    border: 1px dashed rgba(201, 168, 76, 0.3);
-}
-
-.medallion::before {
-    inset: -22px;
-    animation: spin 46s linear infinite;
-}
-
-.medallion::after {
-    inset: -44px;
-    border-color: rgba(255, 255, 255, 0.12);
-    animation: spin 64s linear infinite reverse;
-}
-
-.medallion-mark {
-    width: 55%;
-    height: auto;
-    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.35));
-}
-
-.float-card {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 0.9rem;
-    border-radius: 14px;
-    background-color: rgba(255, 255, 255, 0.97);
-    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
-    font-size: 1.05rem;          /* sizes the emoji */
-    line-height: 1.2;
-    white-space: nowrap;
-    animation: bob 6s ease-in-out infinite;
-}
-
-.float-card small {
-    font-size: 0.76rem;
-    font-weight: 600;
-    color: var(--primary-blue);
-}
-
-.float-card--1 {
-    top: 6%;
-    inset-inline-start: -2%;
-}
-
-.float-card--2 {
-    top: 44%;
-    inset-inline-end: -4%;
-    animation-delay: -2s;
-}
-
-.float-card--3 {
-    bottom: 6%;
-    inset-inline-start: 6%;
-    animation-delay: -4s;
-}
-
-@keyframes bob {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-11px); }
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* ============================================
@@ -1043,6 +995,45 @@ section {
     margin: 0 auto var(--spacing-lg);
 }
 
+/* the application form is the primary action, so it gets a panel of its own
+   and WhatsApp / email sit underneath it as the secondary route */
+.form-card {
+    max-width: 620px;
+    margin: 0 auto var(--spacing-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(201, 168, 76, 0.38);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
+}
+
+.form-step {
+    display: inline-block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--accent-gold);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.form-card h3 {
+    color: var(--white);
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.form-card p {
+    font-size: 0.97rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.form-help {
+    margin: var(--spacing-sm) 0 0 !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.86rem !important;
+}
+
 .cta-buttons {
     display: flex;
     gap: var(--spacing-sm);
@@ -1219,20 +1210,12 @@ section {
        and CTAs stay above the fold instead of being pushed off by a
        full-width medallion */
     .hero-visual {
-        min-height: 300px;
+        min-height: 0;
     }
 
-    .medallion {
-        width: min(240px, 56%);
-    }
-
-    .float-card {
-        font-size: 0.9rem;
-        padding: 0.5rem 0.75rem;
-    }
-
-    .float-card small {
-        font-size: 0.7rem;
+    .hero-photo {
+        max-width: 420px;
+        aspect-ratio: 4 / 3;
     }
 
     .timeline::before {
@@ -1315,28 +1298,6 @@ section {
 }
 
 @media (max-width: 480px) {
-    .hero-visual {
-        min-height: 250px;
-    }
-
-    .medallion {
-        width: 180px;
-    }
-
-    /* pull the cards fully inside the viewport at phone widths */
-    .float-card {
-        font-size: 0.82rem;
-        padding: 0.42rem 0.62rem;
-    }
-
-    .float-card small {
-        font-size: 0.66rem;
-    }
-
-    .float-card--1 { top: 2%;    inset-inline-start: 0; }
-    .float-card--2 { top: 44%;   inset-inline-end: 0; }
-    .float-card--3 { bottom: 2%; inset-inline-start: 3%; }
-
     .hero-actions {
         flex-direction: column;
         align-items: stretch;

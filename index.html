@@ -52,7 +52,11 @@
     <section class="hero">
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="container">
-            <div class="hero-grid">
+            <!-- Single column until the hero photograph lands in images/hero/.
+                 Adding it back is: restore the .hero-visual block below and
+                 delete the .hero--solo class, which re-enables the two column
+                 grid that is still defined in the stylesheet. -->
+            <div class="hero-grid hero--solo">
                 <div class="hero-content reveal">
                     <span class="hero-eyebrow" data-i18n="hero.eyebrow">Étudier en Hongrie</span>
                     <h1 data-i18n="hero.title">Un Avenir, Sans Limites</h1>
@@ -63,24 +67,6 @@
                         <a href="#universites" class="cta-button ghost" data-i18n="hero.cta2">Voir les universités</a>
                     </div>
                     <p class="hero-trust" data-i18n="hero.trust">De la candidature à votre installation, un seul interlocuteur</p>
-                </div>
-
-                <div class="hero-visual reveal" style="--reveal-delay: .15s">
-                    <div class="medallion" aria-hidden="true">
-                        <img src="favicon.png" alt="" class="medallion-mark" width="512" height="512">
-                    </div>
-                    <div class="float-card float-card--1">
-                        🇲🇦 → 🇭🇺
-                        <small data-i18n="hero.card1">Maroc · Hongrie</small>
-                    </div>
-                    <div class="float-card float-card--2">
-                        🎓
-                        <small data-i18n="hero.card2">Stipendium Hungaricum</small>
-                    </div>
-                    <div class="float-card float-card--3">
-                        🤝
-                        <small data-i18n="hero.card3">Accompagnement A → Z</small>
-                    </div>
                 </div>
             </div>
         </div>
@@ -489,7 +475,7 @@
                     <div class="founder-body">
                         <h3>Mouad Rida</h3>
                         <p class="founder-role" data-i18n="about.mouad.role">Co-fondateur</p>
-                        <p data-i18n="about.mouad.body">Titulaire d'un master en Media and Digital Marketing obtenu à ELTE, à Budapest, Mouad a suivi lui-même le chemin qu'il accompagne aujourd'hui: candidature, admission, installation et vie étudiante en Hongrie.</p>
+                        <p data-i18n="about.mouad.body">Diplômé de l'université ELTE à Budapest, où il a obtenu son master en Media and Digital Marketing. Mouad a suivi lui-même le parcours qu'il accompagne aujourd'hui, de la candidature à l'installation.</p>
                     </div>
                 </article>
 
@@ -498,7 +484,7 @@
                     <div class="founder-body">
                         <h3>Aya</h3>
                         <p class="founder-role" data-i18n="about.aya.role">Co-fondatrice</p>
-                        <p data-i18n="about.aya.body">Basée en Hongrie, Aya est votre premier contact chez AFAQ. C'est elle qui répond à vos messages, étudie votre profil et vous guide dès les premières questions.</p>
+                        <p data-i18n="about.aya.body">Boursière du programme Stipendium Hungaricum, Aya poursuit ses études en management à Kecskemét. Elle connaît de l'intérieur le processus de candidature à la bourse et la réalité de la vie étudiante en Hongrie.</p>
                     </div>
                 </article>
             </div>
@@ -513,8 +499,17 @@
                 <span class="cta-deadline" data-i18n="cta.deadline">Prochaine session Stipendium Hungaricum</span>
                 <h2 data-i18n="cta.title">Prêt à Commencer?</h2>
                 <p class="cta-subtitle" data-i18n="cta.body">Les candidatures ouvrent généralement en novembre et se clôturent à la mi-janvier. Écrivez-nous dès maintenant pour une première consultation gratuite et nous étudierons votre profil ensemble.</p>
+
+                <div class="form-card">
+                    <span class="form-step" data-i18n="form.step">Première étape</span>
+                    <h3 data-i18n="form.title">Remplissez votre formulaire de candidature</h3>
+                    <p data-i18n="form.body">Renseignez vos informations et vérifiez leur exactitude avant de valider. C'est sur cette base que nous étudions votre profil et que nous revenons vers vous.</p>
+                    <a href="https://forms.gle/12GyJd7Cim9jWkk27" class="cta-button primary" target="_blank" rel="noopener" data-i18n="form.cta">Ouvrir le formulaire</a>
+                    <p class="form-help" data-i18n="form.help">Une question vous bloque? Écrivez-nous et nous vous guidons.</p>
+                </div>
+
                 <div class="cta-buttons">
-                    <a href="https://wa.me/36707579165" class="cta-button primary" target="_blank" rel="noopener" data-i18n="cta.whatsapp">Écrire sur WhatsApp</a>
+                    <a href="https://wa.me/36707579165" class="cta-button secondary" target="_blank" rel="noopener" data-i18n="cta.whatsapp">Écrire sur WhatsApp</a>
                     <a href="mailto:contact@afaq.study" class="cta-button secondary" data-i18n="cta.email">Nous envoyer un email</a>
                 </div>
             </div>
