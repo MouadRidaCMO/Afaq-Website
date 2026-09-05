@@ -8,3 +8,6 @@ Afaq - *.png
 
 # source photographs; the resized cards in images/uni/ are what ship
 images/campus/
+
+# service photo originals; the resized cards in images/services/ are what ship
+images/source/
