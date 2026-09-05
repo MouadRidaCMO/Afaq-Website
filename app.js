@@ -61,11 +61,7 @@ en: {
     'uni.obuda.body': 'A technical university built around applied engineering and information technology, with direct links to industry.',
     'uni.obuda.t1': 'Engineering', 'uni.obuda.t2': 'IT', 'uni.obuda.t3': 'Applied sciences',
 
-    'uni.ppke.body': 'Recognised for law and the humanities, with a faculty of information technology and bionics that has made a name for itself.',
-    'uni.ppke.t1': 'Law', 'uni.ppke.t2': 'Humanities', 'uni.ppke.t3': 'IT',
 
-    'uni.mate.body': 'Hungary’s national centre for agriculture, food science and environmental studies, spread across several campuses.',
-    'uni.mate.t1': 'Agriculture', 'uni.mate.t2': 'Food science', 'uni.mate.t3': 'Environment',
 
     'uni.pannonia.body': 'A human scale university near Lake Balaton, strong in chemical engineering, information technology and management.',
     'uni.pannonia.t1': 'Chemical engineering', 'uni.pannonia.t2': 'IT', 'uni.pannonia.t3': 'Management',
@@ -73,11 +69,7 @@ en: {
     'uni.miskolc.body': 'A broad university in northern Hungary with deep roots in engineering and materials science.',
     'uni.miskolc.t1': 'Engineering', 'uni.miskolc.t2': 'Management', 'uni.miskolc.t3': 'Law',
 
-    'uni.eszterhazy.body': 'Focused on teacher training, the humanities and economics, in one of the finest historic towns in the country.',
-    'uni.eszterhazy.t1': 'Education', 'uni.eszterhazy.t2': 'Humanities', 'uni.eszterhazy.t3': 'Economics',
 
-    'uni.dunaujvaros.body': 'A small, practical university on the Danube, oriented towards engineering, IT and communication.',
-    'uni.dunaujvaros.t1': 'Engineering', 'uni.dunaujvaros.t2': 'IT', 'uni.dunaujvaros.t3': 'Communication',
 
     'sh.eyebrow': 'State scholarship',
     'sh.title': 'Stipendium Hungaricum',
@@ -211,13 +203,7 @@ ar: {
     'uni.obuda.body': 'جامعة تقنية مبنية على الهندسة التطبيقية وتكنولوجيا المعلومات، بصلة مباشرة بالقطاع الصناعي.',
     'uni.obuda.t1': 'هندسة', 'uni.obuda.t2': 'معلوميات', 'uni.obuda.t3': 'علوم تطبيقية',
 
-    'uni.ppke.city': 'بودابست',
-    'uni.ppke.body': 'معروفة بالقانون والعلوم الإنسانية، مع كلية للمعلوميات والبيونيك صنعت لنفسها اسماً.',
-    'uni.ppke.t1': 'قانون', 'uni.ppke.t2': 'علوم إنسانية', 'uni.ppke.t3': 'معلوميات',
 
-    'uni.mate.city': 'غودولو',
-    'uni.mate.body': 'المركز الوطني المجري للفلاحة وعلوم الأغذية والبيئة، موزّع على عدة حرم جامعية.',
-    'uni.mate.t1': 'فلاحة', 'uni.mate.t2': 'علوم الأغذية', 'uni.mate.t3': 'بيئة',
 
     'uni.pannonia.city': 'فيسبريم',
     'uni.pannonia.body': 'جامعة بحجم إنساني قرب بحيرة بالاتون، قوية في الهندسة الكيميائية والمعلوميات والتدبير.',
@@ -227,13 +213,7 @@ ar: {
     'uni.miskolc.body': 'جامعة شاملة في شمال المجر، بجذور عميقة في الهندسة وعلوم المواد.',
     'uni.miskolc.t1': 'هندسة', 'uni.miskolc.t2': 'تدبير', 'uni.miskolc.t3': 'قانون',
 
-    'uni.eszterhazy.city': 'إيغر',
-    'uni.eszterhazy.body': 'تركّز على تكوين الأساتذة والعلوم الإنسانية والاقتصاد، في واحدة من أجمل المدن التاريخية في البلاد.',
-    'uni.eszterhazy.t1': 'تربية', 'uni.eszterhazy.t2': 'علوم إنسانية', 'uni.eszterhazy.t3': 'اقتصاد',
 
-    'uni.dunaujvaros.city': 'دونا أوجفاروش',
-    'uni.dunaujvaros.body': 'جامعة صغيرة وعملية على ضفاف الدانوب، موجّهة نحو الهندسة والمعلوميات والتواصل.',
-    'uni.dunaujvaros.t1': 'هندسة', 'uni.dunaujvaros.t2': 'معلوميات', 'uni.dunaujvaros.t3': 'تواصل',
 
     'sh.eyebrow': 'منحة حكومية',
     'sh.title': 'Stipendium Hungaricum',

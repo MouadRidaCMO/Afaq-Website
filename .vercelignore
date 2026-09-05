@@ -5,3 +5,6 @@ node_modules
 
 # original full-res artwork — kept in the repo as source, not deployed
 Afaq - *.png
+
+# source photographs; the resized cards in images/uni/ are what ship
+images/campus/
