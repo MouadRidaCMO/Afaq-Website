@@ -1,5 +1,5 @@
 /* ============================================
-   AFAQ — language switcher + mobile menu + scroll reveals
+   Afaq — language switcher + mobile menu + scroll reveals
    ============================================
 
    French lives in the HTML as the default, so the page reads correctly with
@@ -24,7 +24,7 @@ en: {
     'hero.eyebrow': 'Study in Hungary',
     'hero.title': 'A Future Without Limits',
     'hero.subtitle': 'Your partner for a place at Hungary’s leading universities',
-    'hero.description': 'AFAQ helps talented Moroccan students reach higher education opportunities in Hungary, with full support before, during and after enrolment.',
+    'hero.description': 'Afaq helps talented Moroccan students reach higher education opportunities in Hungary, with full support before, during and after enrolment.',
     'hero.cta': 'Start your journey',
     'hero.cta2': 'See the universities',
     'hero.trust': 'From application to settling in, one point of contact',
@@ -107,7 +107,7 @@ en: {
     'process.4.title': 'Ongoing Support',
     'process.4.body': 'During your studies and afterwards, we remain your partners for settling in, academic questions and your professional development.',
 
-    'why.title': 'Why Choose AFAQ',
+    'why.title': 'Why Choose Afaq',
     'why.subtitle': 'What sets us apart from a simple intermediary',
     'why.1.title': 'Local Expertise',
     'why.1.body': 'Our founders know Hungary, its universities and student life from the inside. We understand the specific challenges Moroccan students face.',
@@ -136,7 +136,7 @@ en: {
     'footer.contact': 'Contact',
     'footer.privacy': 'Privacy policy',
     'footer.country': 'Morocco',
-    'footer.rights': '© 2026 AFAQ. All rights reserved.'
+    'footer.rights': '© 2026 Afaq. All rights reserved.'
 },
 
 /* -------------------------------------------------- ARABIC --------- */
