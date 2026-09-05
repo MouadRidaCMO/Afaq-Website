@@ -132,7 +132,7 @@ en: {
     'about.mouad.role': 'Co-founder',
     'about.mouad.body': 'An ELTE graduate, Mouad holds a master’s in Media and Digital Marketing from Budapest. He has walked the same route he now guides students through, from application to settling in.',
     'about.aya.role': 'Co-founder',
-    'about.aya.body': 'A Stipendium Hungaricum scholarship holder, Aya is studying management in Kecskemét. She knows the scholarship application and the reality of student life in Hungary from the inside.',
+    'about.aya.body': 'A Stipendium Hungaricum scholarship holder, Aya is studying management in Hungary. She knows the scholarship application and the reality of student life there from the inside.',
 
     'cta.deadline': 'Next Stipendium Hungaricum round',
     'cta.title': 'Ready to Begin?',
@@ -288,7 +288,7 @@ ar: {
     'about.mouad.role': 'شريك مؤسس',
     'about.mouad.body': 'خريج جامعة ELTE ببودابست، حاصل على ماستر في الإعلام والتسويق الرقمي. سلك معاد بنفسه المسار الذي يرافق فيه الطلبة اليوم، من الترشيح إلى الاستقرار.',
     'about.aya.role': 'شريكة مؤسِّسة',
-    'about.aya.body': 'حاصلة على منحة Stipendium Hungaricum، تتابع آية دراستها في التدبير بمدينة كيتشكيميت. تعرف عن قرب مسار الترشيح للمنحة وواقع الحياة الطلابية في المجر.',
+    'about.aya.body': 'حاصلة على منحة Stipendium Hungaricum، تتابع آية دراستها في التدبير بالمجر. تعرف عن قرب مسار الترشيح للمنحة وواقع الحياة الطلابية هناك.',
 
     'cta.deadline': 'الدورة المقبلة لمنحة Stipendium Hungaricum',
     'cta.title': 'مستعد للانطلاق؟',

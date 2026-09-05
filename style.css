@@ -381,13 +381,6 @@ section {
     margin: 0;
 }
 
-.hero-trust::before {
-    content: "";
-    width: 22px;
-    height: 1px;
-    background-color: rgba(201, 168, 76, 0.8);
-}
-
 /* ---- hero visual ----
    Single column until the photograph is in place. Dropping the .hero--solo
    class from the markup restores the two column layout below. */
@@ -905,15 +898,17 @@ section {
     background-color: var(--light-gray);
 }
 
+/* fixed at four across rather than auto-fit: there are exactly four items and
+   auto-fit packed three on a row, orphaning the fourth underneath */
 .why-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
 }
 
 .why-item {
     position: relative;
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
     background-color: var(--white);
     border: 1px solid var(--hairline);
     border-radius: 16px;
@@ -1190,6 +1185,13 @@ section {
    RESPONSIVE DESIGN
    ============================================ */
 
+/* four across gets cramped before the layout is ready to go single column */
+@media (max-width: 1080px) {
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 900px) {
     .hero-grid {
         grid-template-columns: 1fr;
@@ -1303,10 +1305,6 @@ section {
         align-items: stretch;
     }
 
-    /* the rule reads as a stray dash once the trust line wraps */
-    .hero-trust::before {
-        display: none;
-    }
 
     .service-icon {
         width: 48px;
