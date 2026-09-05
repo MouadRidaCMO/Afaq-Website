@@ -578,6 +578,315 @@ section {
 }
 
 /* ============================================
+   UNIVERSITIES
+   ============================================ */
+
+.universities {
+    background-color: var(--white);
+}
+
+.uni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.uni-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    background-color: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(18, 63, 146, 0.04);
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease,
+                border-color 0.4s ease;
+}
+
+/* gold sweep that wipes across the top edge on hover */
+.uni-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    inset-inline: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-gold), #e6cd85, var(--accent-gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s var(--ease-out);
+}
+
+.uni-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(201, 168, 76, 0.4);
+    box-shadow: 0 24px 50px rgba(18, 63, 146, 0.15);
+}
+
+.uni-card:hover::before {
+    transform: scaleX(1);
+}
+
+.uni-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.uni-mono {
+    display: inline-grid;
+    place-items: center;
+    min-width: 76px;
+    height: 46px;
+    padding: 0 0.7rem;
+    border-radius: 12px;
+    background: linear-gradient(140deg, var(--primary-blue), #1c56b8);
+    color: var(--white);
+    font-family: var(--serif-font);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    box-shadow: 0 6px 16px rgba(18, 63, 146, 0.25);
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease, background 0.4s ease;
+}
+
+.uni-card:hover .uni-mono {
+    transform: translateY(-2px) scale(1.04);
+    background: linear-gradient(140deg, #b3902f, var(--accent-gold));
+    box-shadow: 0 10px 22px rgba(201, 168, 76, 0.4);
+}
+
+.uni-city {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--text-gray);
+    font-size: 0.83rem;
+    font-weight: 500;
+}
+
+.uni-city::before {
+    content: "📍";
+    font-size: 0.78rem;
+}
+
+.uni-card h3 {
+    font-size: 1.08rem;
+    line-height: 1.35;
+    margin-bottom: var(--spacing-xs);
+}
+
+.uni-card p {
+    flex-grow: 1;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.uni-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+}
+
+.uni-tags li {
+    padding: 0.28rem 0.7rem;
+    border: 1px solid rgba(18, 63, 146, 0.13);
+    border-radius: 999px;
+    background-color: var(--light-gray);
+    color: var(--primary-blue);
+    font-size: 0.76rem;
+    font-weight: 600;
+    transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+
+.uni-card:hover .uni-tags li {
+    background-color: var(--gold-soft);
+    border-color: rgba(201, 168, 76, 0.35);
+}
+
+.uni-note {
+    max-width: 640px;
+    margin: var(--spacing-xl) auto 0;
+    text-align: center;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+/* ============================================
+   SCHOLARSHIP
+   ============================================ */
+
+.scholarship {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(158deg, #14459e 0%, var(--primary-blue) 50%, var(--deep-blue) 100%);
+    color: var(--white);
+}
+
+.scholarship .container {
+    position: relative;
+    z-index: 1;
+}
+
+.scholarship-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+}
+
+.scholarship h2 {
+    color: var(--white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.scholarship p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+}
+
+.benefit-list {
+    list-style: none;
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.benefit-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0.07);
+    transition: transform 0.35s var(--ease-out), background-color 0.35s ease,
+                border-color 0.35s ease;
+}
+
+.benefit-list li:hover {
+    transform: translateX(6px);
+    background-color: rgba(255, 255, 255, 0.11);
+    border-color: rgba(201, 168, 76, 0.4);
+}
+
+.benefit-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: var(--gold-soft);
+    font-size: 1.25rem;
+}
+
+.benefit-list strong {
+    display: block;
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 0.15rem;
+}
+
+.benefit-list small {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.86rem;
+    line-height: 1.6;
+}
+
+.scholarship-note {
+    max-width: 700px;
+    margin: var(--spacing-xl) auto 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.62) !important;
+}
+
+/* ============================================
+   ABOUT / FOUNDERS
+   ============================================ */
+
+.about {
+    background-color: var(--white);
+}
+
+.founder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.founder-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background-color: var(--light-gray);
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease;
+}
+
+.founder-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 44px rgba(18, 63, 146, 0.12);
+}
+
+/* initials stand in until a real headshot is dropped in; swapping to a photo
+   means setting a background-image on this element */
+.founder-photo {
+    position: relative;
+    flex-shrink: 0;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: linear-gradient(140deg, var(--primary-blue), #1c56b8);
+    box-shadow: 0 0 0 3px var(--white), 0 0 0 4px rgba(201, 168, 76, 0.45);
+    background-size: cover;
+    background-position: center;
+}
+
+.founder-photo::after {
+    content: attr(data-initials);
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: var(--accent-gold);
+    font-family: var(--serif-font);
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.founder-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.15rem;
+}
+
+.founder-role {
+    color: var(--accent-gold);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+}
+
+.founder-card p:last-child {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    margin-bottom: 0;
+}
+
+/* ============================================
    PROCESS SECTION
    ============================================ */
 
@@ -929,6 +1238,11 @@ section {
     .timeline::before {
         display: none;
     }
+
+    .scholarship-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
 }
 
 @media (max-width: 768px) {
@@ -974,8 +1288,16 @@ section {
 
     .services-grid,
     .timeline,
-    .why-grid {
+    .why-grid,
+    .uni-grid,
+    .founder-grid {
         grid-template-columns: 1fr;
+    }
+
+    .founder-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
     .cta-buttons {

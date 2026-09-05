@@ -25,16 +25,18 @@
 
                 <div class="nav-panel" id="primary-nav">
                     <ul class="nav-links">
+                        <li><a href="#universites" data-i18n="nav.universities">Universités</a></li>
+                        <li><a href="#bourse" data-i18n="nav.scholarship">Bourse</a></li>
                         <li><a href="#services" data-i18n="nav.services">Services</a></li>
-                        <li><a href="#process" data-i18n="nav.process">Processus</a></li>
-                        <li><a href="#why" data-i18n="nav.why">Pourquoi AFAQ</a></li>
+                        <li><a href="#apropos" data-i18n="nav.about">À propos</a></li>
                         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="nav-actions">
-                    <div class="lang-switch" role="group" aria-label="Langue / اللغة">
+                    <div class="lang-switch" role="group" aria-label="Langue / Language / اللغة">
                         <button type="button" data-lang="fr" class="is-active">FR</button>
+                        <button type="button" data-lang="en">EN</button>
                         <button type="button" data-lang="ar" lang="ar">ع</button>
                     </div>
                     <button type="button" class="nav-toggle" id="nav-toggle"
@@ -46,7 +48,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="container">
@@ -58,9 +60,9 @@
                     <p class="hero-description" data-i18n="hero.description">AFAQ aide les étudiants marocains talentueux à accéder à des opportunités d'études supérieures en Hongrie, avec un accompagnement complet avant, pendant et après l'inscription.</p>
                     <div class="hero-actions">
                         <a href="#contact" class="cta-button primary" data-i18n="hero.cta">Commencer votre parcours</a>
-                        <a href="#services" class="cta-button ghost" data-i18n="hero.cta2">Découvrir nos services</a>
+                        <a href="#universites" class="cta-button ghost" data-i18n="hero.cta2">Voir les universités</a>
                     </div>
-                    <p class="hero-trust" data-i18n="hero.trust">De la candidature à votre installation — un seul interlocuteur</p>
+                    <p class="hero-trust" data-i18n="hero.trust">De la candidature à votre installation, un seul interlocuteur</p>
                 </div>
 
                 <div class="hero-visual reveal" style="--reveal-delay: .15s">
@@ -84,7 +86,280 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Universities -->
+    <section id="universites" class="universities">
+        <div class="container">
+            <div class="section-head reveal">
+                <h2 data-i18n="uni.title">Les Universités Hongroises</h2>
+                <p class="section-subtitle" data-i18n="uni.subtitle">Les établissements vers lesquels nous orientons nos étudiants, du plus ancien au plus technique</p>
+            </div>
+
+            <div class="uni-grid">
+                <article class="uni-card reveal">
+                    <div class="uni-head">
+                        <span class="uni-mono">ELTE</span>
+                        <span class="uni-city" data-i18n="uni.elte.city">Budapest</span>
+                    </div>
+                    <h3>Eötvös Loránd University</h3>
+                    <p data-i18n="uni.elte.body">Fondée en 1635, ELTE est la plus ancienne université hongroise encore en activité et une référence en sciences humaines, en psychologie et en sciences fondamentales.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.elte.t1">Sciences humaines</li>
+                        <li data-i18n="uni.elte.t2">Psychologie</li>
+                        <li data-i18n="uni.elte.t3">Sciences</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal" style="--reveal-delay: .06s">
+                    <div class="uni-head">
+                        <span class="uni-mono">BCE</span>
+                        <span class="uni-city" data-i18n="uni.corvinus.city">Budapest</span>
+                    </div>
+                    <h3>Corvinus University</h3>
+                    <p data-i18n="uni.corvinus.body">L'adresse hongroise la plus connue en économie et en management, avec une solide réputation internationale en commerce et en politiques publiques.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.corvinus.t1">Économie</li>
+                        <li data-i18n="uni.corvinus.t2">Management</li>
+                        <li data-i18n="uni.corvinus.t3">Sciences sociales</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal" style="--reveal-delay: .12s">
+                    <div class="uni-head">
+                        <span class="uni-mono">BME</span>
+                        <span class="uni-city" data-i18n="uni.bme.city">Budapest</span>
+                    </div>
+                    <h3>Budapest University of Technology and Economics</h3>
+                    <p data-i18n="uni.bme.body">L'une des plus anciennes universités techniques au monde, BME reste la référence hongroise en ingénierie, en architecture et en informatique.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.bme.t1">Ingénierie</li>
+                        <li data-i18n="uni.bme.t2">Informatique</li>
+                        <li data-i18n="uni.bme.t3">Architecture</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal">
+                    <div class="uni-head">
+                        <span class="uni-mono">BGE</span>
+                        <span class="uni-city" data-i18n="uni.bge.city">Budapest</span>
+                    </div>
+                    <h3>Budapest Business University</h3>
+                    <p data-i18n="uni.bge.body">L'une des plus grandes écoles de commerce du pays, tournée vers la formation appliquée au commerce, à la finance et au tourisme.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.bge.t1">Commerce</li>
+                        <li data-i18n="uni.bge.t2">Finance</li>
+                        <li data-i18n="uni.bge.t3">Tourisme</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal" style="--reveal-delay: .06s">
+                    <div class="uni-head">
+                        <span class="uni-mono">SZTE</span>
+                        <span class="uni-city" data-i18n="uni.szte.city">Szeged</span>
+                    </div>
+                    <h3>University of Szeged</h3>
+                    <p data-i18n="uni.szte.body">Grande université de recherche du sud de la Hongrie, particulièrement forte en médecine, en pharmacie et en sciences du vivant.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.szte.t1">Médecine</li>
+                        <li data-i18n="uni.szte.t2">Pharmacie</li>
+                        <li data-i18n="uni.szte.t3">Recherche</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal" style="--reveal-delay: .12s">
+                    <div class="uni-head">
+                        <span class="uni-mono">DE</span>
+                        <span class="uni-city" data-i18n="uni.debrecen.city">Debrecen</span>
+                    </div>
+                    <h3>University of Debrecen</h3>
+                    <p data-i18n="uni.debrecen.body">L'une des plus grandes universités du pays et une destination installée de longue date pour les étudiants internationaux en médecine et en ingénierie.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.debrecen.t1">Médecine</li>
+                        <li data-i18n="uni.debrecen.t2">Ingénierie</li>
+                        <li data-i18n="uni.debrecen.t3">Agronomie</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal">
+                    <div class="uni-head">
+                        <span class="uni-mono">PTE</span>
+                        <span class="uni-city" data-i18n="uni.pecs.city">Pécs</span>
+                    </div>
+                    <h3>University of Pécs</h3>
+                    <p data-i18n="uni.pecs.body">La première université fondée en Hongrie, en 1367. Elle propose médecine, commerce et arts dans une ville réputée pour sa vie étudiante.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.pecs.t1">Médecine</li>
+                        <li data-i18n="uni.pecs.t2">Commerce</li>
+                        <li data-i18n="uni.pecs.t3">Arts</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal" style="--reveal-delay: .06s">
+                    <div class="uni-head">
+                        <span class="uni-mono">SZE</span>
+                        <span class="uni-city" data-i18n="uni.szechenyi.city">Győr</span>
+                    </div>
+                    <h3>Széchenyi István University</h3>
+                    <p data-i18n="uni.szechenyi.body">Implantée au cœur de l'industrie automobile hongroise, avec des programmes d'ingénierie et de gestion façonnés par des partenariats industriels étroits.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.szechenyi.t1">Ingénierie</li>
+                        <li data-i18n="uni.szechenyi.t2">Automobile</li>
+                        <li data-i18n="uni.szechenyi.t3">Gestion</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal" style="--reveal-delay: .12s">
+                    <div class="uni-head">
+                        <span class="uni-mono">ÓE</span>
+                        <span class="uni-city" data-i18n="uni.obuda.city">Budapest</span>
+                    </div>
+                    <h3>Óbuda University</h3>
+                    <p data-i18n="uni.obuda.body">Université technique construite autour de l'ingénierie appliquée et des technologies de l'information, en lien direct avec le monde industriel.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.obuda.t1">Ingénierie</li>
+                        <li data-i18n="uni.obuda.t2">Informatique</li>
+                        <li data-i18n="uni.obuda.t3">Sciences appliquées</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal">
+                    <div class="uni-head">
+                        <span class="uni-mono">PPKE</span>
+                        <span class="uni-city" data-i18n="uni.ppke.city">Budapest</span>
+                    </div>
+                    <h3>Pázmány Péter Catholic University</h3>
+                    <p data-i18n="uni.ppke.body">Reconnue pour le droit et les sciences humaines, avec une faculté d'informatique et de bionique qui s'est fait un nom.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.ppke.t1">Droit</li>
+                        <li data-i18n="uni.ppke.t2">Sciences humaines</li>
+                        <li data-i18n="uni.ppke.t3">Informatique</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal" style="--reveal-delay: .06s">
+                    <div class="uni-head">
+                        <span class="uni-mono">MATE</span>
+                        <span class="uni-city" data-i18n="uni.mate.city">Gödöllő</span>
+                    </div>
+                    <h3>Hungarian University of Agriculture and Life Sciences</h3>
+                    <p data-i18n="uni.mate.body">Le centre national hongrois pour l'agronomie, les sciences alimentaires et l'environnement, réparti sur plusieurs campus.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.mate.t1">Agronomie</li>
+                        <li data-i18n="uni.mate.t2">Sciences alimentaires</li>
+                        <li data-i18n="uni.mate.t3">Environnement</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal" style="--reveal-delay: .12s">
+                    <div class="uni-head">
+                        <span class="uni-mono">PE</span>
+                        <span class="uni-city" data-i18n="uni.pannonia.city">Veszprém</span>
+                    </div>
+                    <h3>University of Pannonia</h3>
+                    <p data-i18n="uni.pannonia.body">Université à taille humaine près du lac Balaton, forte en génie chimique, en informatique et en gestion.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.pannonia.t1">Génie chimique</li>
+                        <li data-i18n="uni.pannonia.t2">Informatique</li>
+                        <li data-i18n="uni.pannonia.t3">Gestion</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal">
+                    <div class="uni-head">
+                        <span class="uni-mono">ME</span>
+                        <span class="uni-city" data-i18n="uni.miskolc.city">Miskolc</span>
+                    </div>
+                    <h3>University of Miskolc</h3>
+                    <p data-i18n="uni.miskolc.body">Université généraliste du nord de la Hongrie, aux racines solides en ingénierie et en science des matériaux.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.miskolc.t1">Ingénierie</li>
+                        <li data-i18n="uni.miskolc.t2">Gestion</li>
+                        <li data-i18n="uni.miskolc.t3">Droit</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal" style="--reveal-delay: .06s">
+                    <div class="uni-head">
+                        <span class="uni-mono">EKKE</span>
+                        <span class="uni-city" data-i18n="uni.eszterhazy.city">Eger</span>
+                    </div>
+                    <h3>Eszterházy Károly Catholic University</h3>
+                    <p data-i18n="uni.eszterhazy.body">Centrée sur la formation des enseignants, les sciences humaines et l'économie, dans l'une des plus belles villes historiques du pays.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.eszterhazy.t1">Éducation</li>
+                        <li data-i18n="uni.eszterhazy.t2">Sciences humaines</li>
+                        <li data-i18n="uni.eszterhazy.t3">Économie</li>
+                    </ul>
+                </article>
+
+                <article class="uni-card reveal" style="--reveal-delay: .12s">
+                    <div class="uni-head">
+                        <span class="uni-mono">DUE</span>
+                        <span class="uni-city" data-i18n="uni.dunaujvaros.city">Dunaújváros</span>
+                    </div>
+                    <h3>University of Dunaújváros</h3>
+                    <p data-i18n="uni.dunaujvaros.body">Petite université pratique au bord du Danube, orientée vers l'ingénierie, l'informatique et la communication.</p>
+                    <ul class="uni-tags">
+                        <li data-i18n="uni.dunaujvaros.t1">Ingénierie</li>
+                        <li data-i18n="uni.dunaujvaros.t2">Informatique</li>
+                        <li data-i18n="uni.dunaujvaros.t3">Communication</li>
+                    </ul>
+                </article>
+            </div>
+
+            <p class="uni-note reveal" data-i18n="uni.note">Le choix d'un établissement dépend de votre profil, de votre filière et de vos objectifs. Nous en discutons ensemble avant toute candidature.</p>
+        </div>
+    </section>
+
+    <!-- Scholarship -->
+    <section id="bourse" class="scholarship">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container">
+            <div class="scholarship-grid">
+                <div class="scholarship-copy reveal">
+                    <span class="hero-eyebrow" data-i18n="sh.eyebrow">Bourse d'État</span>
+                    <h2 data-i18n="sh.title">Stipendium Hungaricum</h2>
+                    <p data-i18n="sh.body">Le programme de bourses du gouvernement hongrois pour les étudiants internationaux. Le Maroc fait partie des pays partenaires, ce qui rend les étudiants marocains éligibles en licence, en master et en doctorat.</p>
+                    <p data-i18n="sh.body2">La bourse est très sélective et le nombre de choix de programmes est limité. La qualité du dossier et la cohérence du projet font la différence, et c'est précisément là que nous intervenons.</p>
+                    <a href="#contact" class="cta-button primary" data-i18n="sh.cta">Évaluer mon éligibilité</a>
+                </div>
+
+                <ul class="benefit-list reveal" style="--reveal-delay: .12s">
+                    <li>
+                        <span class="benefit-icon">🎓</span>
+                        <span>
+                            <strong data-i18n="sh.b1.title">Frais de scolarité</strong>
+                            <small data-i18n="sh.b1.body">Pris en charge à 100% sur le programme concerné</small>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="benefit-icon">💶</span>
+                        <span>
+                            <strong data-i18n="sh.b2.title">Allocation mensuelle</strong>
+                            <small data-i18n="sh.b2.body">Versée pendant toute la durée des études</small>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="benefit-icon">🏠</span>
+                        <span>
+                            <strong data-i18n="sh.b3.title">Logement</strong>
+                            <small data-i18n="sh.b3.body">Résidence universitaire ou contribution au loyer</small>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="benefit-icon">🩺</span>
+                        <span>
+                            <strong data-i18n="sh.b4.title">Assurance maladie</strong>
+                            <small data-i18n="sh.b4.body">Incluse dans le programme</small>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <p class="scholarship-note reveal" data-i18n="sh.note">Certaines dépenses restent à votre charge, et les conditions varient selon l'université et le programme. Nous faisons le point avec vous sur votre situation précise.</p>
+        </div>
+    </section>
+
+    <!-- Services -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-head reveal">
@@ -102,7 +377,7 @@
                 <div class="service-card reveal" style="--reveal-delay: .08s">
                     <div class="service-icon">🏠</div>
                     <h3 data-i18n="services.2.title">Logement</h3>
-                    <p data-i18n="services.2.body">Aide à la recherche et à la sécurisation de votre accommodation en Hongrie, près de votre université.</p>
+                    <p data-i18n="services.2.body">Aide à la recherche et à la sécurisation de votre logement en Hongrie, à proximité de votre université.</p>
                 </div>
 
                 <div class="service-card reveal" style="--reveal-delay: .16s">
@@ -114,7 +389,7 @@
                 <div class="service-card reveal">
                     <div class="service-icon">📱</div>
                     <h3 data-i18n="services.4.title">Cartes SIM &amp; Télécommunications</h3>
-                    <p data-i18n="services.4.body">Configuration rapide de vos services de télécommunication et numéro de téléphone local.</p>
+                    <p data-i18n="services.4.body">Configuration rapide de vos services de télécommunication et d'un numéro de téléphone local.</p>
                 </div>
 
                 <div class="service-card reveal" style="--reveal-delay: .08s">
@@ -126,13 +401,13 @@
                 <div class="service-card reveal" style="--reveal-delay: .16s">
                     <div class="service-icon">💼</div>
                     <h3 data-i18n="services.6.title">Placement Professionnel</h3>
-                    <p data-i18n="services.6.body">Soutien pour stages, emplois d'étudiant et transition vers votre première carrière après vos études.</p>
+                    <p data-i18n="services.6.body">Soutien pour les stages, les emplois étudiants et la transition vers votre première expérience professionnelle après vos études.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
+    <!-- Process -->
     <section id="process" class="process">
         <div class="container">
             <div class="section-head reveal">
@@ -150,13 +425,13 @@
                 <div class="timeline-item reveal" style="--reveal-delay: .1s">
                     <div class="timeline-number">2</div>
                     <h3 data-i18n="process.2.title">Sélection &amp; Candidature</h3>
-                    <p data-i18n="process.2.body">Nous préparons votre dossier de candidature complet pour les universités sélectionnées. Support total pour les démarches administratives.</p>
+                    <p data-i18n="process.2.body">Nous préparons votre dossier de candidature complet pour les universités sélectionnées, avec un soutien total pour les démarches administratives.</p>
                 </div>
 
                 <div class="timeline-item reveal" style="--reveal-delay: .2s">
                     <div class="timeline-number">3</div>
                     <h3 data-i18n="process.3.title">Acceptation &amp; Préparation</h3>
-                    <p data-i18n="process.3.body">Une fois accepté, nous vous aidons pour les formalités de visa, logement, et tous les préparatifs pour votre départ.</p>
+                    <p data-i18n="process.3.body">Une fois accepté, nous vous aidons pour les formalités de visa, le logement et tous les préparatifs de votre départ.</p>
                 </div>
 
                 <div class="timeline-item reveal" style="--reveal-delay: .3s">
@@ -168,7 +443,7 @@
         </div>
     </section>
 
-    <!-- Why AFAQ Section -->
+    <!-- Why AFAQ -->
     <section id="why" class="why-afaq">
         <div class="container">
             <div class="section-head reveal">
@@ -179,17 +454,17 @@
             <div class="why-grid">
                 <div class="why-item reveal">
                     <h3 data-i18n="why.1.title">Expertise Locale</h3>
-                    <p data-i18n="why.1.body">Nos fondateurs connaissent la Hongrie, les universités et le parcours étudiant. Nous comprenons les défis spécifiques des étudiants marocains.</p>
+                    <p data-i18n="why.1.body">Nos fondateurs connaissent la Hongrie, ses universités et le parcours étudiant de l'intérieur. Nous comprenons les défis spécifiques des étudiants marocains.</p>
                 </div>
 
                 <div class="why-item reveal" style="--reveal-delay: .08s">
                     <h3 data-i18n="why.2.title">Sélection Qualité</h3>
-                    <p data-i18n="why.2.body">Nous priorisons votre meilleur fit académique et professionnel, pas le simple placement. Votre succès est notre succès.</p>
+                    <p data-i18n="why.2.body">Nous privilégions ce qui vous correspond vraiment sur le plan académique et professionnel, pas le simple placement. Votre réussite est notre réussite.</p>
                 </div>
 
                 <div class="why-item reveal" style="--reveal-delay: .16s">
                     <h3 data-i18n="why.3.title">Accompagnement Complet</h3>
-                    <p data-i18n="why.3.body">Au-delà de l'inscription, nous gérons votre accommodation, vos finances, vos documents administratifs. Tout ce qui vous permet de réussir.</p>
+                    <p data-i18n="why.3.body">Au-delà de l'inscription, nous gérons votre logement, vos finances et vos documents administratifs. Tout ce qui vous permet de réussir.</p>
                 </div>
 
                 <div class="why-item reveal" style="--reveal-delay: .24s">
@@ -200,14 +475,44 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- About / Founders -->
+    <section id="apropos" class="about">
+        <div class="container">
+            <div class="section-head reveal">
+                <h2 data-i18n="about.title">Qui Sommes-Nous</h2>
+                <p class="section-subtitle" data-i18n="about.subtitle">Nous avons fait le parcours que nous accompagnons aujourd'hui</p>
+            </div>
+
+            <div class="founder-grid">
+                <article class="founder-card reveal">
+                    <div class="founder-photo" data-initials="MR" aria-hidden="true"></div>
+                    <div class="founder-body">
+                        <h3>Mouad Rida</h3>
+                        <p class="founder-role" data-i18n="about.mouad.role">Co-fondateur</p>
+                        <p data-i18n="about.mouad.body">Titulaire d'un master en Media and Digital Marketing obtenu à ELTE, à Budapest, Mouad a suivi lui-même le chemin qu'il accompagne aujourd'hui: candidature, admission, installation et vie étudiante en Hongrie.</p>
+                    </div>
+                </article>
+
+                <article class="founder-card reveal" style="--reveal-delay: .1s">
+                    <div class="founder-photo" data-initials="A" aria-hidden="true"></div>
+                    <div class="founder-body">
+                        <h3>Aya</h3>
+                        <p class="founder-role" data-i18n="about.aya.role">Co-fondatrice</p>
+                        <p data-i18n="about.aya.body">Basée en Hongrie, Aya est votre premier contact chez AFAQ. C'est elle qui répond à vos messages, étudie votre profil et vous guide dès les premières questions.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
     <section id="contact" class="cta-section">
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="container">
             <div class="reveal">
-                <span class="cta-deadline" data-i18n="cta.deadline">Candidatures Stipendium Hungaricum 2027 — ouverture le 15 novembre 2026</span>
+                <span class="cta-deadline" data-i18n="cta.deadline">Prochaine session Stipendium Hungaricum</span>
                 <h2 data-i18n="cta.title">Prêt à Commencer?</h2>
-                <p class="cta-subtitle" data-i18n="cta.body">Contactez-nous dès maintenant pour une consultation gratuite et découvrez comment AFAQ peut transformer votre avenir académique.</p>
+                <p class="cta-subtitle" data-i18n="cta.body">Les candidatures ouvrent généralement en novembre et se clôturent à la mi-janvier. Écrivez-nous dès maintenant pour une première consultation gratuite et nous étudierons votre profil ensemble.</p>
                 <div class="cta-buttons">
                     <a href="https://wa.me/36707579165" class="cta-button primary" target="_blank" rel="noopener" data-i18n="cta.whatsapp">Écrire sur WhatsApp</a>
                     <a href="mailto:contact@afaq.study" class="cta-button secondary" data-i18n="cta.email">Nous envoyer un email</a>
@@ -230,10 +535,11 @@
                 <div class="footer-section">
                     <h4 data-i18n="footer.nav">Navigation</h4>
                     <ul>
+                        <li><a href="#universites" data-i18n="nav.universities">Universités</a></li>
+                        <li><a href="#bourse" data-i18n="nav.scholarship">Bourse</a></li>
                         <li><a href="#services" data-i18n="nav.services">Services</a></li>
                         <li><a href="#process" data-i18n="nav.process">Processus</a></li>
-                        <li><a href="#why" data-i18n="nav.why">Pourquoi AFAQ</a></li>
-                        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                        <li><a href="#apropos" data-i18n="nav.about">À propos</a></li>
                         <li><a href="/privacy.html" data-i18n="footer.privacy">Politique de confidentialité</a></li>
                     </ul>
                 </div>
