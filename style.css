@@ -302,9 +302,14 @@ section {
 .hero {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(158deg, #14459e 0%, var(--primary-blue) 45%, var(--deep-blue) 100%);
+    background-color: var(--deep-blue);
+    background-image: url('images/hero/graduation.jpg');
+    background-image: image-set(url('images/hero/graduation.avif') type('image/avif'),
+                                url('images/hero/graduation.jpg') type('image/jpeg'));
+    background-size: cover;
+    background-position: center 35%;
     color: var(--white);
-    padding: calc(var(--spacing-2xl) + 1rem) 0;
+    padding: calc(var(--spacing-2xl) + 1.5rem) 0;
 }
 
 /* soft light pooling behind the visual, keeps the flat block from reading dead */
@@ -315,6 +320,17 @@ section {
     background:
         radial-gradient(55% 55% at 76% 28%, rgba(201, 168, 76, 0.22), transparent 62%),
         radial-gradient(45% 45% at 10% 88%, rgba(255, 255, 255, 0.10), transparent 60%);
+}
+
+/* photo scrim: a brand-blue wash plus vertical darkening at the top and
+   bottom, so the graduates stay readable behind the copy */
+.hero .hero-glow {
+    background:
+        radial-gradient(65% 55% at 50% 20%, rgba(201, 168, 76, 0.16), transparent 68%),
+        linear-gradient(180deg,
+            rgba(12, 47, 107, 0.88) 0%,
+            rgba(18, 63, 146, 0.74) 46%,
+            rgba(12, 47, 107, 0.93) 100%);
 }
 
 .hero .container {
