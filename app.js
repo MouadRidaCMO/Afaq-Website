@@ -19,7 +19,6 @@ en: {
     'nav.scholarship': 'Scholarship',
     'nav.services': 'Services',
     'nav.process': 'Process',
-    'nav.about': 'About',
     'nav.contact': 'Contact',
 
     'hero.eyebrow': 'Study in Hungary',
@@ -119,12 +118,6 @@ en: {
     'why.4.title': 'Lasting Support',
     'why.4.body': 'Our relationship does not end when you arrive. We support you throughout your studies and into your professional transition.',
 
-    'about.title': 'Who We Are',
-    'about.subtitle': 'We have walked the path we now guide others through',
-    'about.mouad.role': 'Co-founder',
-    'about.mouad.body': 'An ELTE graduate, Mouad holds a master’s in Media and Digital Marketing from Budapest. He has walked the same route he now guides students through, from application to settling in.',
-    'about.aya.role': 'Co-founder',
-    'about.aya.body': 'A Stipendium Hungaricum scholarship holder, Aya is studying management in Hungary. She knows the scholarship application and the reality of student life there from the inside.',
 
     'cta.deadline': 'Next Stipendium Hungaricum round',
     'cta.title': 'Ready to Begin?',
@@ -152,7 +145,6 @@ ar: {
     'nav.scholarship': 'المنحة',
     'nav.services': 'الخدمات',
     'nav.process': 'المسار',
-    'nav.about': 'من نحن',
     'nav.contact': 'اتصل بنا',
 
     'hero.eyebrow': 'الدراسة في المجر',
@@ -263,12 +255,6 @@ ar: {
     'why.4.title': 'علاقة تدوم',
     'why.4.body': 'علاقتنا لا تنتهي عند وصولك. ندعمك طوال دراستك وفي انتقالك إلى الحياة المهنية.',
 
-    'about.title': 'من نحن',
-    'about.subtitle': 'سلكنا بأنفسنا الطريق الذي نرافقك فيه اليوم',
-    'about.mouad.role': 'شريك مؤسس',
-    'about.mouad.body': 'خريج جامعة ELTE ببودابست، حاصل على ماستر في الإعلام والتسويق الرقمي. سلك معاد بنفسه المسار الذي يرافق فيه الطلبة اليوم، من الترشيح إلى الاستقرار.',
-    'about.aya.role': 'شريكة مؤسِّسة',
-    'about.aya.body': 'حاصلة على منحة Stipendium Hungaricum، تتابع آية دراستها في التدبير بالمجر. تعرف عن قرب مسار الترشيح للمنحة وواقع الحياة الطلابية هناك.',
 
     'cta.deadline': 'الدورة المقبلة لمنحة Stipendium Hungaricum',
     'cta.title': 'مستعد للانطلاق؟',
