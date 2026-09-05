@@ -2,6 +2,15 @@
    AFAQ Website Styles
    ============================================ */
 
+/* Playfair Display draws & as an ornate Et-ligature. unicode-range pulls
+   just that one character from a plain face and leaves everything else alone. */
+@font-face {
+    font-family: 'AmpersandFix';
+    src: local('Helvetica Neue'), local('Helvetica'), local('Arial'),
+         local('Segoe UI'), local('Liberation Sans'), local('DejaVu Sans');
+    unicode-range: U+0026;
+}
+
 :root {
     --primary-blue: #123f92;
     --deep-blue: #0c2f6b;
@@ -14,7 +23,7 @@
     --hairline: rgba(18, 63, 146, 0.09);
 
     /* Typography */
-    --serif-font: 'Playfair Display', 'Georgia', 'Garamond', serif;
+    --serif-font: 'AmpersandFix', 'Playfair Display', 'Georgia', 'Garamond', serif;
     --sans-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 
     /* Spacing */
@@ -321,27 +330,13 @@ section {
 }
 
 .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    padding: 0.4rem 0.95rem;
-    margin-bottom: var(--spacing-md);
-    border: 1px solid rgba(201, 168, 76, 0.45);
-    border-radius: 999px;
-    background: var(--gold-soft);
+    display: block;
+    margin-bottom: var(--spacing-sm);
     color: var(--accent-gold);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-}
-
-.hero-eyebrow::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--accent-gold);
 }
 
 .hero h1 {
@@ -912,17 +907,13 @@ section {
 }
 
 .cta-deadline {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    padding: 0.55rem 1.1rem;
-    margin-bottom: var(--spacing-md);
-    border: 1px solid rgba(201, 168, 76, 0.45);
-    border-radius: 999px;
-    background: var(--gold-soft);
+    display: block;
+    margin-bottom: var(--spacing-sm);
     color: var(--accent-gold);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
 .cta-section p {
