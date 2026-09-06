@@ -76,6 +76,16 @@
 
         return lang;
     })();
+
+    /* A trailing "#" left over from an older visit: the logo used to be
+       href="#", and once afaq.study/# is in someone's history the omnibox
+       keeps offering it back long after the markup was fixed. Strip it before
+       the page paints, and leave real fragments like #universites alone. */
+    (function () {
+        if (location.hash === '' && location.href.slice(-1) === '#' && history.replaceState) {
+            history.replaceState(null, '', location.pathname + location.search);
+        }
+    })();
     </script>
 
     <script defer src="/_vercel/insights/script.js"></script>
