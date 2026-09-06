@@ -11,3 +11,7 @@ images/campus/
 
 # service photo originals; the resized cards in images/services/ are what ship
 images/source/
+
+# the share card generator; the card it produces is what ships
+tools/
+.cache/
