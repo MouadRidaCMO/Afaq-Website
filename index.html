@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afaq - Un Avenir, Sans Limites</title>
+    <title data-i18n="meta.title">Afaq - Un Avenir, Sans Limites</title>
 
     <!-- Share and search metadata. The site is passed around on WhatsApp, so
          the card below is what most people see before they ever reach the
@@ -40,6 +40,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- The language decision has to happen here, before the first paint.
+         Arabic is what a first-time visitor gets; a ?lang= in the URL or a
+         previous choice in localStorage overrides it. Setting lang and dir now
+         means the RTL rules are already in force when the page paints, and the
+         Cairo download starts in parallel with the body instead of a second
+         later. app.js reads window.afaqLang and swaps the text itself, still
+         at the end of the body and still before the first paint.
+         Deliberately inline and not deferred: a separate file would be one
+         more round trip in front of the paint. -->
+    <script>
+    window.afaqLang = (function () {
+        var supported = ['fr', 'en', 'ar'];
+        var pick = function (value) { return supported.indexOf(value) > -1 ? value : null; };
+
+        var lang = null;
+        try { lang = pick(new URLSearchParams(location.search).get('lang')); } catch (e) { /* older browser */ }
+        // a ?lang= link is a deliberate choice and is remembered; the default is not
+        window.afaqLangChosen = !!lang;
+        if (!lang) { try { lang = pick(localStorage.getItem('afaq-lang')); } catch (e) { /* private browsing */ } }
+        lang = lang || 'ar';
+
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+        if (lang === 'ar') {
+            // same id loadArabicFont() uses, so it never loads Cairo twice
+            var font = document.createElement('link');
+            font.id = 'ar-font';
+            font.rel = 'stylesheet';
+            font.href = 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap';
+            document.head.appendChild(font);
+        }
+
+        return lang;
+    })();
+    </script>
+
     <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>

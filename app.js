@@ -15,6 +15,8 @@ const T = {
 
 /* -------------------------------------------------- ENGLISH -------- */
 en: {
+    'meta.title': 'Afaq - A Future Without Limits',
+
     'nav.universities': 'Universities',
     'nav.scholarship': 'Scholarship',
     'nav.services': 'Services',
@@ -141,6 +143,8 @@ en: {
 
 /* -------------------------------------------------- ARABIC --------- */
 ar: {
+    'meta.title': 'آفاق - مستقبل بلا حدود',
+
     'nav.universities': 'الجامعات',
     'nav.scholarship': 'المنحة',
     'nav.services': 'الخدمات',
@@ -291,7 +295,10 @@ function loadArabicFont() {
     document.head.appendChild(link);
 }
 
-function setLang(lang) {
+/* persist is false when the language was not chosen by the reader but picked
+   for them, so an automatic default never masquerades as a saved preference:
+   change the default later and returning visitors follow it. */
+function setLang(lang, persist = true) {
     const dict = T[lang];            // undefined for 'fr' — restores the markup
     if (lang === 'ar') loadArabicFont();
 
@@ -310,6 +317,8 @@ function setLang(lang) {
         btn.classList.toggle('is-active', btn.dataset.lang === lang);
     });
 
+    if (!persist) return;
+
     try {
         localStorage.setItem('afaq-lang', lang);
     } catch (e) {
@@ -318,21 +327,16 @@ function setLang(lang) {
 }
 
 function initLang() {
-    const supported = ['fr', 'en', 'ar'];
-
     document.querySelectorAll('.lang-switch button').forEach(btn => {
         btn.addEventListener('click', () => setLang(btn.dataset.lang));
     });
 
-    // ?lang= in the URL wins, so a link can be shared in any language
-    const fromUrl = new URLSearchParams(location.search).get('lang');
-    let saved = null;
-    try {
-        saved = localStorage.getItem('afaq-lang');
-    } catch (e) { /* ignore */ }
-
-    const lang = fromUrl || saved;
-    if (supported.includes(lang)) setLang(lang);
+    /* Which language to open in is decided by the inline script in the head of
+       index.html, because lang, dir and the Cairo download all have to be
+       settled before the first paint. It has already applied ?lang= over a
+       saved choice over the Arabic default; all that is left here is the text.
+       The fallback only matters if that script is ever removed. */
+    setLang(window.afaqLang || 'ar', !!window.afaqLangChosen);
 }
 
 function initMenu() {
