@@ -454,8 +454,39 @@ function initHeaderShadow() {
     window.addEventListener('scroll', update, { passive: true });
 }
 
+/* The floating WhatsApp button.
+   Two conditions decide whether it shows: the reader is past the hero, where
+   the header CTA has scrolled away, and the contact section is not on screen,
+   since that already carries the same button. Without JavaScript the CSS
+   leaves it permanently visible, which is the safe failure. */
+function initWhatsAppFloat() {
+    const btn = document.querySelector('.wa-float');
+    if (!btn) return;
+
+    const hero = document.querySelector('.hero');
+    const contact = document.getElementById('contact');
+    let contactOnScreen = false;
+
+    const update = () => {
+        const threshold = hero ? hero.offsetHeight * 0.6 : 400;
+        btn.classList.toggle('is-visible', window.scrollY > threshold && !contactOnScreen);
+    };
+
+    if (contact && 'IntersectionObserver' in window) {
+        new IntersectionObserver(entries => {
+            contactOnScreen = entries[0].isIntersecting;
+            update();
+        }).observe(contact);
+    }
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+}
+
 initLang();
 initMenu();
 initReveal();
 initStepProgress();
 initHeaderShadow();
+initWhatsAppFloat();

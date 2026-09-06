@@ -1359,6 +1359,101 @@ section {
 }
 
 /* ============================================
+   FLOATING WHATSAPP BUTTON
+   The whole conversion path runs through WhatsApp and the contact section
+   sits at the foot of a long page, so this keeps the conversation one tap
+   away the rest of the way down.
+
+   The hidden state is gated behind .js-reveal, exactly like the scroll
+   reveals, so with JavaScript off the button is simply always present
+   rather than stranded at opacity 0. Entry uses the individual translate
+   and scale properties rather than transform, which leaves transform free
+   for the hover lift and keeps the two from overwriting each other.
+   ============================================ */
+
+.wa-float {
+    position: fixed;
+    inset-inline-end: clamp(1rem, 3vw, 2rem);
+    bottom: calc(clamp(1rem, 3vw, 2rem) + env(safe-area-inset-bottom, 0px));
+    z-index: 60;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    padding: 0.85rem 1.4rem;
+    border-radius: 999px;
+
+    /* WhatsApp green taken down to 5.4:1 against the white label; the brand
+       #25D366 only manages 2:1 and fails on a phone in daylight */
+    background-color: #0f7a43;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+
+    box-shadow: 0 10px 30px rgba(12, 47, 107, 0.28);
+    transition: background-color 0.25s ease, transform 0.3s var(--ease-out),
+                box-shadow 0.3s var(--ease-out), opacity 0.35s ease,
+                translate 0.4s var(--ease-out), scale 0.4s var(--ease-out),
+                visibility 0.35s;
+}
+
+.wa-float:hover,
+.wa-float:focus-visible {
+    background-color: #0c6637;
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(12, 47, 107, 0.34);
+}
+
+.wa-float svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.js-reveal .wa-float {
+    opacity: 0;
+    visibility: hidden;
+    translate: 0 14px;
+    scale: 0.94;
+    pointer-events: none;
+}
+
+.js-reveal .wa-float.is-visible {
+    opacity: 1;
+    visibility: visible;
+    translate: none;
+    scale: none;
+    pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+    /* collapses to the mark alone so it never covers the copy, but the label
+       stays in the accessibility tree and keeps naming the link */
+    .wa-float {
+        width: 54px;
+        height: 54px;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .wa-float-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+}
+
+/* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 
