@@ -484,7 +484,29 @@ function initWhatsAppFloat() {
     window.addEventListener('resize', update, { passive: true });
 }
 
+/* The logo was href="#", which parks a bare "#" in the address bar the moment
+   anyone clicks it. It points at "/" now, so it still works with JavaScript
+   off and matches privacy.html; on the homepage this turns the click into a
+   scroll to the top rather than a reload, and leaves the URL, along with any
+   ?lang= on it, exactly as it was. scrollTo without an explicit behavior lets
+   the CSS decide, so prefers-reduced-motion still gets an instant jump. */
+function initLogoLink() {
+    const logo = document.querySelector('.header .logo');
+    if (!logo) return;
+
+    logo.addEventListener('click', e => {
+        const onHome = location.pathname === '/' || location.pathname.endsWith('/index.html');
+        if (!onHome) return;
+        // let cmd/ctrl/shift/middle clicks open a new tab as the reader expects
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+
+        e.preventDefault();
+        window.scrollTo(0, 0);
+    });
+}
+
 initLang();
+initLogoLink();
 initMenu();
 initReveal();
 initStepProgress();
