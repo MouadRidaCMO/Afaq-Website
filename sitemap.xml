@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- One page, one entry. The site is a single scrolling document; the
+     ?lang=en and ?lang=ar variants are switched client side and serve the
+     same HTML, so they are not listed as separate URLs.
+     Update lastmod when the copy changes in a way worth recrawling. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://afaq.study/</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+</urlset>

@@ -30,12 +30,16 @@ founders section on the site: it existed, and was deliberately removed.
 ```
 index.html      the entire page, French copy lives here as the default
 privacy.html    incomplete, see blocked task 11
-style.css       ~1500 lines, organised into 18 commented sections
-app.js          language switching, mobile menu, scroll reveals, spine progress
+style.css       ~1600 lines, organised into 19 commented sections
+app.js          language switching, mobile menu, scroll reveals, spine progress,
+                floating WhatsApp button
+robots.txt      allows everything, points at the sitemap
+sitemap.xml     one entry, the homepage
 vercel.json     cache headers
 .vercelignore   keeps source photography out of the deploy
 images/
   hero/         graduation.avif + .jpg, the hero background
+  share.jpg     1200x630 Open Graph card, see below
   uni/          11 university cards, 800x500, deployed
   services/     6 service cards, 800x500, deployed
   campus/       university originals, NOT deployed
@@ -102,11 +106,21 @@ Originals go in `images/campus/` or `images/source/`; both are in
 with a slight upward bias (so rooflines are not clipped), saved progressive
 JPEG at q82. The whole deployed set is roughly 2MB.
 
-**Environment note: outbound network is blocked.** University sites, Unsplash,
-Wikimedia and Google are all unreachable from the session container, so images
-cannot be fetched — they must be uploaded to the repo by hand. This is a
-network policy, not a missing tool. The same block prevented reading
-competitor sites for design reference.
+**The share card is generated, not photographed.** `images/share.jpg` is the
+hero photograph cropped to 1200x630 (full width, bottom-biased so the faces and
+raised hands survive and the empty sky does not), washed with `--deep-blue` at
+47%, a left-to-right gradient under the copy, `logo.png` composited at 300px,
+and Playfair Display + Inter pulled from Google Fonts for the type.
+`tools/share-card.py` regenerates it (`pip install pillow`, run from the repo
+root); `tools/` is in `.vercelignore` and does not ship. If you replace it, **rename the file or add a query
+string**: WhatsApp and Facebook cache a preview per URL for weeks, so reusing
+the name means nobody sees the new card.
+
+**Environment note: outbound network depends on the session.** Earlier sessions
+had no outbound access at all, so images had to be uploaded to the repo by hand
+and competitor sites could not be read. The session that added the share card
+did reach Google Fonts and pip through the agent proxy, so test before assuming
+either way: it is a per-environment network policy, not a missing tool.
 
 ---
 
@@ -172,19 +186,36 @@ Learned across the build, worth respecting:
 
 ## Outstanding work
 
-### Do first — infrastructure, not taste
+### Done — items 1 to 4, the infrastructure block
 
-1. **Share tags.** Zero `og:`, `twitter:` or `description` meta tags exist.
-   afaq.study currently shares as a bare grey link with no title, image or text.
-   The audience distributes over WhatsApp, so this is the highest-value fix on
-   the list. Needs a share image, ~1200×630, croppable from
-   `images/hero/graduation.jpg`.
-2. **Meta description.** None present, so Google writes the snippet itself.
-   Same edit as above.
-3. **Floating WhatsApp button.** Persistent bubble, bottom-right, linking to
-   `https://wa.me/36707579165`. The entire conversion path is WhatsApp and it
-   currently requires scrolling to the foot of a long page.
-4. **`sitemap.xml` and `robots.txt`.** Neither exists.
+Kept here rather than deleted so the numbering below still matches anything
+that referenced it.
+
+1. **Share tags.** Done. Open Graph and Twitter card tags in `index.html`,
+   pointing at `images/share.jpg` (1200x630). `og:image` is an absolute URL
+   because scrapers ignore relative ones. Locale is `fr_FR` with `en_GB` and
+   `ar_MA` as alternates.
+2. **Meta description.** Done, alongside a `canonical` link and `theme-color`.
+   The `og:`/`twitter:` descriptions are a shorter, warmer variant of it.
+3. **Floating WhatsApp button.** Done. `.wa-float` at the end of `index.html`,
+   styles in the FLOATING WHATSAPP BUTTON section, behaviour in
+   `initWhatsAppFloat()`. It appears once the reader is 60% past the hero and
+   steps aside while the contact section is on screen, since that already
+   carries the same button. The hidden state is gated behind `.js-reveal`, so
+   with JavaScript off it is simply always visible. Its label is a text node
+   reusing the `cta.whatsapp` key, not an `aria-label`, so it translates and
+   still names the link when it collapses to a circle under 600px. The green is
+   darkened to #0f7a43: WhatsApp's own #25D366 is 2:1 against white and
+   unreadable in daylight.
+4. **`sitemap.xml` and `robots.txt`.** Done. One sitemap entry, the homepage.
+   `?lang=` variants are not listed: they are switched client side and serve
+   identical HTML, so they would be duplicate URLs. `privacy.html` is
+   deliberately not disallowed in robots.txt, because a page blocked from
+   crawling can never have its own `noindex` read.
+
+**Still to verify by hand, once deployed:** paste `https://afaq.study` into a
+WhatsApp chat and confirm the card renders. The Facebook sharing debugger will
+force a re-scrape if the old blank preview is cached.
 
 ### Polish
 

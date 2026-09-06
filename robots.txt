@@ -1,0 +1,9 @@
+# afaq.study
+# Everything on the site is meant to be found. privacy.html carries its own
+# noindex, which crawlers can only honour if they are allowed to fetch it,
+# so it is deliberately not blocked here.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://afaq.study/sitemap.xml
