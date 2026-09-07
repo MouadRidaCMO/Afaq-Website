@@ -28,11 +28,12 @@ founders section on the site: it existed, and was deliberately removed.
 ## Files
 
 ```
-index.html      the entire page, French copy lives here as the default
+index.html      the entire page, Arabic copy lives here as the base, plus an
+                inline head script that picks the language before first paint
 privacy.html    incomplete, see blocked task 11
 style.css       ~1600 lines, organised into 19 commented sections
-app.js          language switching, mobile menu, scroll reveals, spine progress,
-                floating WhatsApp button
+app.js          French and English dictionaries, language switching, mobile
+                menu, scroll reveals, spine progress, floating WhatsApp button
 robots.txt      allows everything, points at the sitemap
 sitemap.xml     one entry, the homepage
 vercel.json     cache headers
@@ -57,25 +58,49 @@ Section ids: `universites`, `bourse`, `services`, `process`, `why`, `contact`.
 
 ## How the three languages work
 
-French is written directly into `index.html`. English and Arabic are override
-dictionaries in `app.js` (`T.en`, `T.ar`), keyed by each element's `data-i18n`
-attribute. **134 keys currently.**
+**Arabic is the base.** It is written directly into `index.html`, so it is what
+the page shows before a line of JavaScript runs, what a reader with JavaScript
+off keeps, and what a crawler that does not execute scripts sees in the body.
+French and English are override dictionaries in `app.js` (`T.fr`, `T.en`),
+keyed by each element's `data-i18n` attribute. **135 keys currently.**
 
-- A key missing from a dictionary silently falls back to the French in the
-  markup. This is deliberate, and it is why `T.en` carries no city names: they
-  are identical in both languages.
+It was the other way round until the owner asked for Arabic on first visit.
+Doing it with a JavaScript swap alone meant French painted first and flipped a
+second or two later on a slow connection, measured at roughly three seconds on
+a throttled 400kbps profile, so the copy moved into the markup instead.
+
+- A key missing from a dictionary falls back to the Arabic in the markup. That
+  is why `T.ar` holds exactly one entry, `meta.title`.
+- **The head and the body deliberately disagree on language.** `<title>`, the
+  meta description and every `og:`/`twitter:` tag stay French, because that is
+  what Google indexes and what a WhatsApp preview shows, and the share card
+  artwork is French. `T.ar['meta.title']` puts the tab title back into Arabic
+  for people actually reading the page. This was the owner's call; do not
+  "fix" the inconsistency without asking.
+- **Which language a visit opens in is decided by the inline script in the head
+  of `index.html`, not by `app.js`** — `lang`, `dir` and the Cairo request all
+  have to be settled before the first paint. Precedence: `?lang=` in the URL,
+  then a previous choice in `localStorage`, then the browser's own languages
+  (`fr` or `en` win, anything else lands on Arabic), then Arabic. `app.js`
+  reads `window.afaqLang` from it and swaps only the text.
+- Only a real choice is remembered: clicking the switcher or arriving on a
+  `?lang=` link. A language picked from the browser or the Arabic default is
+  not written to `localStorage`, so changing the default later actually reaches
+  returning visitors.
 - `setLang()` swaps `textContent`, so **never put markup inside an element that
   carries `data-i18n`** — it will be destroyed on the first language switch.
-- Arabic sets `dir="rtl"` on `<html>`. Use logical properties
+  The original markup text is stashed in `data-base` on first touch.
+- `dir="rtl"` is now in the served markup. Use logical properties
   (`inset-inline-start`, `padding-inline`) so layout mirrors for free.
-- The Cairo webfont only downloads when someone actually picks Arabic.
-- `?lang=en` / `?lang=ar` in the URL forces a language and is shareable; the
-  choice also persists in `localStorage`.
+- Cairo is requested by the head script when the page opens in Arabic, by
+  `loadArabicFont()` when someone switches to it, and by a `<noscript>` link
+  for readers with no JavaScript, who are stuck on the Arabic markup.
 
 **After any content edit, verify no key was orphaned or left untranslated.**
-There is a check pattern used throughout the history: parse `data-i18n` values
-out of `index.html`, compare against the keys in each dictionary block, and
-report missing and orphaned entries in both directions.
+Parse `data-i18n` values out of `index.html` and compare against the keys in
+each dictionary, in both directions. The expected shape is: French complete
+except `meta.title`, English complete, Arabic carrying `meta.title` alone, and
+nothing orphaned.
 
 ---
 
@@ -235,10 +260,12 @@ force a re-scrape if the old blank preview is cached.
 
 ### Blocked on the owner
 
-11. **`privacy.html` is unusable.** Three `[À COMPLÉTER]` placeholders: legal
-    company name, postal address, RC/ICE number, retention periods, and the
-    last-updated date. Also `noindex`, so nobody can reach it. It is a drafted
-    starting point, not legal advice, and should be reviewed by a lawyer.
+11. **`privacy.html` is unusable**, and now also the only French-only page:
+    an Arabic reader following the footer link lands on French. Three
+    `[À COMPLÉTER]` placeholders: legal company name, postal address, RC/ICE
+    number, retention periods, and the last-updated date. Also `noindex`, so
+    nobody can reach it. It is a drafted starting point, not legal advice, and
+    should be reviewed by a lawyer.
 12. **Aya's surname.** Her card reads "Aya" while Mouad's reads "Mouad Rida".
 13. **Stipendium deadline.** Currently generic ("opens in November, closes
     mid-January") because the owner's figures and the original page disagreed
