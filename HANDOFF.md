@@ -43,6 +43,7 @@ images/
 favicon.ico     multi-size 16/24/32/48/64, hand-sharpened at small sizes
 favicon.png     512px, tab optimised, tassel deliberately trimmed
 mark.png        full uncropped cap, used by the footer wordmark
+wordmark.png    the AFAQ lettering cut out of logo.png and recoloured white
 logo.png        the full lockup, header only
 ```
 
@@ -141,6 +142,11 @@ competitor sites for design reference.
 
 ## Gotchas that have already caused bugs
 
+**A bare element selector beats a class.** `.footer-brand img` sized both footer
+images at 44x44 and silently squashed the new wordmark, because `img` adds
+specificity that `.footer-wordmark` does not have. Both images carry explicit
+classes now. Watch for this anywhere a container styles its children by tag.
+
 **Splicing `style.css` by section header is dangerous.** The section order is
 *not* the visual order of the page:
 
@@ -196,8 +202,13 @@ Learned across the build, worth respecting:
 - **No FAQ and no pricing page.** Deliberate: questions should route to WhatsApp
   rather than being answered on the site.
 - **No em dashes in body copy.** Fine in titles, not in sentences.
-- **"Afaq", never "AFAQ"** in text. The all-caps form only survives inside the
-  logo artwork, which cannot be edited here.
+- **"Afaq", never "AFAQ"** in *text*. The all-caps form belongs to the logo
+  artwork. `wordmark.png` counts as artwork, not text: it is the AFAQ lettering
+  cut straight out of `logo.png` and recoloured white so the footer brand
+  matches the header lockup exactly. Setting it in Playfair only ever
+  approximated the letterforms, and the navy original is unreadable on the
+  footer's ground. Regenerate it from `logo.png` if the logo ever changes.
+  Body copy, including the copyright line, still reads "Afaq".
 - **No pill-with-a-dot badges.** They were removed for looking generically
   AI-generated. Eyebrows are plain letterspaced gold caps.
 - Prefers real structural redesign over restyling. A pass that keeps the layout

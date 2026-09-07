@@ -1307,17 +1307,19 @@ section {
     margin-bottom: var(--spacing-sm);
 }
 
-.footer-brand img {
+.footer-brand .footer-cap {
     width: 44px;
     height: 44px;
 }
 
-.footer-brand span {
-    font-family: var(--serif-font);
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: var(--white);
+/* The wordmark is lifted straight out of logo.png and recoloured white, so
+   the footer carries the same letterforms and the same all-caps AFAQ as the
+   header lockup. Setting it in Playfair only ever approximated them, and the
+   navy original is unreadable on this ground. Regenerate it from logo.png if
+   the logo artwork ever changes. */
+.footer-brand .footer-wordmark {
+    width: auto;
+    height: 30px;
 }
 
 .footer-section h4 {
