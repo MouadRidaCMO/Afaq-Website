@@ -125,6 +125,8 @@ en: {
     'cta.whatsapp': 'Message us on WhatsApp',
     'cta.email': 'Send us an email',
 
+    'social.follow': 'Follow us',
+
     'form.step': 'First step',
     'form.title': 'Fill in your application form',
     'form.body': 'Enter your details and check they are correct before submitting. This is what we use to review your profile and get back to you.',
@@ -261,6 +263,8 @@ ar: {
     'cta.body': 'تُفتح الترشيحات عادة في نونبر وتُغلق في منتصف يناير. راسلنا الآن للحصول على استشارة أولى مجانية وسندرس ملفك معاً.',
     'cta.whatsapp': 'راسلنا على واتساب',
     'cta.email': 'أرسل لنا بريداً إلكترونياً',
+
+    'social.follow': 'تابعونا',
 
     'form.step': 'الخطوة الأولى',
     'form.title': 'املأ استمارة الترشيح',

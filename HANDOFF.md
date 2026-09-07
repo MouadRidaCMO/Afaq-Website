@@ -49,6 +49,23 @@ logo.png        the full lockup, header only
 Page order: hero → universities → scholarship → services → process → why → contact.
 Section ids: `universites`, `bourse`, `services`, `process`, `why`, `contact`.
 
+Social accounts, linked from both the contact section and the footer brand
+column via the `.social-links` component:
+
+| | |
+|---|---|
+| Facebook | `facebook.com/profile.php?id=61594426460308` (Afaq Abroad) |
+| Instagram | `instagram.com/afaq_abroad` |
+| WhatsApp | `wa.me/36707579165` |
+
+The markup is deliberately duplicated in the two places rather than injected by
+JavaScript, so the links survive with scripting off. **Change one, change the
+other.** The glyphs are solid brand marks, not the outline style used elsewhere
+on the page: an outlined Facebook or WhatsApp stops reading as its logo. Only
+the "Suivez-nous" eyebrow is translated (`social.follow`); the three names are
+identical in all three languages and live in `aria-label` attributes, which
+`setLang()` does not touch.
+
 ---
 
 ## How the three languages work
@@ -201,7 +218,8 @@ Learned across the build, worth respecting:
    Same edit as above.
 3. **Floating WhatsApp button.** Persistent bubble, bottom-right, linking to
    `https://wa.me/36707579165`. The entire conversion path is WhatsApp and it
-   currently requires scrolling to the foot of a long page.
+   currently requires scrolling to the contact section or the footer. Still
+   open: the social row added there is not a substitute for a persistent one.
 4. **`sitemap.xml` and `robots.txt`.** Neither exists.
 
 ### Polish
