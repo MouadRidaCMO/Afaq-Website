@@ -42,10 +42,10 @@ images/
   source/       service photo originals, NOT deployed
 favicon.ico     multi-size 16/24/32/48/64, hand-sharpened at small sizes
 favicon.png     512px, tab optimised, tassel deliberately trimmed
-mark.png        full uncropped cap, used by the footer wordmark
-wordmark.png    the AFA9 lettering cut out of logo.png and recoloured white
-Afa9 - Logo.png the full-res original that logo.png is derived from, not deployed
-logo.png        the full lockup, header only
+mark.png        full uncropped cap, NOW UNUSED by the site, kept as an asset
+Afa9 - Logo.png the full-res original the two lockups derive from, not deployed
+logo.png        the full lockup, header and privacy page
+logo-reverse.png the same lockup with the blues lifted to white, footer only
 ```
 
 Page order: hero → universities → scholarship → services → process → why → contact.
@@ -132,6 +132,15 @@ Originals go in `images/campus/` or `images/source/`; both are in
 `.vercelignore` and never ship. Processed cards are 800×500, centre-cropped
 with a slight upward bias (so rooflines are not clipped), saved progressive
 JPEG at q82. The whole deployed set is roughly 2MB.
+
+**The footer needs its own lockup.** `mark.png` was paired with a text wordmark
+on the theory that the cap keeps its gold on a dark ground. It does not: the cap
+body is navy on navy and collapses into a smudge with a floating gold tassel,
+which is invisible in a thumbnail and obvious at 3x. `logo-reverse.png` is the
+header lockup with every blue pixel lifted to near-white and the gold left
+alone, so header and footer read as one brand. **Regenerate it in the same pass
+as `logo.png`.** `mark.png` and the old `wordmark.png` are no longer used by the
+site; the latter was deleted, the former kept as an asset.
 
 **Deriving `logo.png` from a new original.** The supplied artwork is a large
 portrait canvas on solid white. Trim to the content bbox, then knock the
@@ -226,12 +235,9 @@ Learned across the build, worth respecting:
   real-world account.
 
 - **"Afa9", never "AFA9"** in *text*. The all-caps form belongs to the logo
-  artwork. `wordmark.png` counts as artwork, not text: it is the AFA9 lettering
-  cut straight out of `logo.png` and recoloured white so the footer brand
-  matches the header lockup exactly. Setting it in Playfair only ever
-  approximated the letterforms, and the navy original is unreadable on the
-  footer's ground. Regenerate it from `logo.png` if the logo ever changes.
-  Body copy, including the copyright line, reads "Afa9".
+  artwork, and the footer carries that artwork rather than type: setting the
+  wordmark in Playfair only ever approximated the real letterforms. Body copy,
+  including the copyright line, reads "Afa9".
 - **No pill-with-a-dot badges.** They were removed for looking generically
   AI-generated. Eyebrows are plain letterspaced gold caps.
 - Prefers real structural redesign over restyling. A pass that keeps the layout

@@ -1298,18 +1298,19 @@ section {
     margin-bottom: var(--spacing-2xl);
 }
 
-/* the full lockup is navy artwork and turns to mush on a dark ground —
-   the cap mark keeps its gold, so pair it with a plain wordmark instead */
+/* The footer used to pair mark.png with a separate wordmark, on the theory
+   that the cap kept its gold on a dark ground. It does not: the cap body is
+   navy on navy and collapses into a smudge with a floating gold tassel.
+   logo-reverse.png is the same lockup as the header with the blues lifted to
+   white, so the footer and the header read as one brand. Regenerate it
+   alongside logo.png whenever the artwork changes. */
 .footer-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
     margin-bottom: var(--spacing-sm);
 }
 
-.footer-brand .footer-cap {
-    width: 44px;
-    height: 44px;
+.footer-lockup {
+    width: auto;
+    height: 58px;
 }
 
 /* The wordmark is lifted straight out of logo.png and recoloured white, so
@@ -1317,11 +1318,6 @@ section {
    header lockup. Setting it in Playfair only ever approximated them, and the
    navy original is unreadable on this ground. Regenerate it from logo.png if
    the logo artwork ever changes. */
-.footer-brand .footer-wordmark {
-    width: auto;
-    height: 30px;
-}
-
 .footer-section h4 {
     color: var(--accent-gold);
     font-family: var(--serif-font);
