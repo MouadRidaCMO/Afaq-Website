@@ -57,6 +57,18 @@ French is written directly into `index.html`. English and Arabic are override
 dictionaries in `app.js` (`T.en`, `T.ar`), keyed by each element's `data-i18n`
 attribute. **134 keys currently.**
 
+**Arabic is what a visitor lands on.** French remains the source language of the
+markup, so the page still reads with JavaScript off and search engines index it
+as-is; only the rendered default changed. Order of precedence is `?lang=` in the
+URL, then a stored choice, then Arabic. The default is *not* written back to
+`localStorage` — only a deliberate switch is remembered — so a visitor who never
+touches the switcher keeps following the default if it ever changes again.
+
+An inline script in `<head>` resolves the language before the first paint and
+sets `lang`/`dir` plus the Cairo link there, because otherwise the page visibly
+flips from LTR French to RTL Arabic as it loads. **It duplicates the precedence
+logic in `initLang()`; change both together.**
+
 - A key missing from a dictionary silently falls back to the French in the
   markup. This is deliberate, and it is why `T.en` carries no city names: they
   are identical in both languages.
@@ -139,6 +151,12 @@ It has caught two real regressions that screenshots did not.
 3. Lazy-loaded images grow the page after load, so an element offset measured
    early is stale by the time you scroll to it. Walk the whole page first to
    settle layout, then re-measure.
+
+**No bare `href="#"` anywhere.** The logo carried one, which parked a `#` in the
+address bar on the first click and then travelled into every link copied from
+there. It points at `/` now, with a click handler that scrolls to the top
+without reloading, and `stripEmptyHash()` cleans a trailing `#` off URLs already
+in circulation. Real section anchors are untouched.
 
 **Ampersands.** Playfair Display draws `&` as an ornate Et-ligature that reads
 as a bug. A `@font-face` scoped to `unicode-range: U+0026` pulls that one glyph

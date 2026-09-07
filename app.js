@@ -291,7 +291,7 @@ function loadArabicFont() {
     document.head.appendChild(link);
 }
 
-function setLang(lang) {
+function setLang(lang, persist = true) {
     const dict = T[lang];            // undefined for 'fr' — restores the markup
     if (lang === 'ar') loadArabicFont();
 
@@ -310,6 +310,10 @@ function setLang(lang) {
         btn.classList.toggle('is-active', btn.dataset.lang === lang);
     });
 
+    // Only a deliberate choice is remembered. The Arabic default is not
+    // written back, so a visitor who never touches the switcher keeps
+    // following whatever the default is rather than being pinned to it.
+    if (!persist) return;
     try {
         localStorage.setItem('afaq-lang', lang);
     } catch (e) {
@@ -331,8 +335,44 @@ function initLang() {
         saved = localStorage.getItem('afaq-lang');
     } catch (e) { /* ignore */ }
 
-    const lang = fromUrl || saved;
-    if (supported.includes(lang)) setLang(lang);
+    // Arabic is what a first-time visitor lands on. French stays written into
+    // index.html so the page still reads with JavaScript off and search
+    // engines index it as-is; this only decides what is rendered.
+    const chosen = [fromUrl, saved].find(l => supported.includes(l));
+    setLang(chosen || 'ar', Boolean(chosen));
+}
+
+/* The logo used to be href="#", which parked a bare "#" in the address bar on
+   the first click and then travelled into every link copied from there. It
+   points at "/" now. These two keep the bar clean for the URLs already out in
+   the wild, and for clicks that never reload the page. */
+function stripHash() {
+    if (!history.replaceState) return;
+    history.replaceState(null, '', location.pathname + location.search);
+}
+
+function stripEmptyHash() {
+    // A trailing "#" reports an empty location.hash, so test the raw href.
+    // Real section anchors (#contact and friends) are left alone.
+    if (location.href.endsWith('#') && !location.hash) stripHash();
+}
+
+function initHomeLink() {
+    const logo = document.querySelector('.logo');
+    if (!logo) return;
+
+    logo.addEventListener('click', e => {
+        // Let the browser handle open-in-new-tab and friends.
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+        // Anywhere but the home page, "/" is a real navigation.
+        const path = location.pathname;
+        if (path !== '/' && !path.endsWith('/index.html')) return;
+
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        stripHash();
+    });
 }
 
 function initMenu() {
@@ -454,7 +494,9 @@ function initHeaderShadow() {
     window.addEventListener('scroll', update, { passive: true });
 }
 
+stripEmptyHash();
 initLang();
+initHomeLink();
 initMenu();
 initReveal();
 initStepProgress();

@@ -12,6 +12,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script defer src="/_vercel/insights/script.js"></script>
+    <!-- Language is resolved before the first paint. app.js does the real
+         work of swapping the copy, but the text direction and the Arabic
+         webfont have to be settled up front or the page visibly flips from
+         left-to-right French to right-to-left Arabic as it loads. Keep the
+         order of precedence here identical to initLang() in app.js. -->
+    <script>
+    (function () {
+        var supported = ['fr', 'en', 'ar'];
+        var fromUrl = new URLSearchParams(location.search).get('lang');
+        var saved = null;
+        try { saved = localStorage.getItem('afaq-lang'); } catch (e) { /* private browsing */ }
+
+        var lang = [fromUrl, saved, 'ar'].filter(function (l) {
+            return supported.indexOf(l) !== -1;
+        })[0];
+
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+        if (lang === 'ar') {
+            var link = document.createElement('link');
+            link.id = 'ar-font';   // loadArabicFont() in app.js checks this id
+            link.rel = 'stylesheet';
+            link.href = 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap';
+            document.head.appendChild(link);
+        }
+    })();
+    </script>
 </head>
 <body>
     <!-- Navigation & Header -->
@@ -19,7 +47,7 @@
         <div class="container">
             <nav class="nav-container">
                 <div class="logo-section">
-                    <a href="#" class="logo">
+                    <a href="/" class="logo">
                         <img src="logo.png" alt="Afaq — مستقبل بلا حدود" class="logo-img" width="700" height="266">
                     </a>
                 </div>
