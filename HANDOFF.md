@@ -43,7 +43,8 @@ images/
 favicon.ico     multi-size 16/24/32/48/64, hand-sharpened at small sizes
 favicon.png     512px, tab optimised, tassel deliberately trimmed
 mark.png        full uncropped cap, used by the footer wordmark
-wordmark.png    the AFAQ lettering cut out of logo.png and recoloured white
+wordmark.png    the AFA9 lettering cut out of logo.png and recoloured white
+Afa9 - Logo.png the full-res original that logo.png is derived from, not deployed
 logo.png        the full lockup, header only
 ```
 
@@ -132,6 +133,16 @@ Originals go in `images/campus/` or `images/source/`; both are in
 with a slight upward bias (so rooflines are not clipped), saved progressive
 JPEG at q82. The whole deployed set is roughly 2MB.
 
+**Deriving `logo.png` from a new original.** The supplied artwork is a large
+portrait canvas on solid white. Trim to the content bbox, then knock the
+background out by flood filling from the four corners rather than thresholding
+on whiteness, which punches holes through the tassel highlights and the gold
+slogan. The lockup is 2.63:1, so it resizes to 700x266 and the `width`/`height`
+attributes in both HTML files still hold. Do not palette quantise it: at 256
+colours the cap's blue gradient bands visibly, and the 44KB saved is nothing
+next to the photography. Recut `wordmark.png` in the same pass and update its
+`width`/`height` if the crop moves.
+
 **Environment note: outbound network is blocked.** University sites, Unsplash,
 Wikimedia and Google are all unreachable from the session container, so images
 cannot be fetched — they must be uploaded to the repo by hand. This is a
@@ -215,13 +226,12 @@ Learned across the build, worth respecting:
   real-world account.
 
 - **"Afa9", never "AFA9"** in *text*. The all-caps form belongs to the logo
-  artwork. `wordmark.png` counts as artwork, not text: it is the AFAQ lettering
+  artwork. `wordmark.png` counts as artwork, not text: it is the AFA9 lettering
   cut straight out of `logo.png` and recoloured white so the footer brand
-  matches the header lockup exactly. **It still shows the old AFAQ artwork and
-  must be regenerated from the new logo.** Setting it in Playfair only ever
+  matches the header lockup exactly. Setting it in Playfair only ever
   approximated the letterforms, and the navy original is unreadable on the
   footer's ground. Regenerate it from `logo.png` if the logo ever changes.
-  Body copy, including the copyright line, still reads "Afaq".
+  Body copy, including the copyright line, reads "Afa9".
 - **No pill-with-a-dot badges.** They were removed for looking generically
   AI-generated. Eyebrows are plain letterspaced gold caps.
 - Prefers real structural redesign over restyling. A pass that keeps the layout
