@@ -1214,6 +1214,74 @@ section {
 }
 
 /* ============================================
+   SOCIAL LINKS
+   One component, used twice: in the contact section and in the footer. Both
+   sit on the dark blue, so a single set of rules covers them. The brand
+   glyphs are solid rather than the outline style used elsewhere on the page,
+   because an outlined Facebook or WhatsApp stops reading as the logo it is.
+   ============================================ */
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    list-style: none;
+}
+
+.social-links a {
+    display: grid;
+    place-items: center;
+    /* 44px is the minimum comfortable touch target, and it is why the chips
+       are this size rather than as small as the glyphs would allow. */
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.88);
+    transition: transform 0.25s var(--ease-out),
+                color 0.25s var(--ease-out),
+                border-color 0.25s var(--ease-out),
+                background-color 0.25s var(--ease-out);
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+    transform: translateY(-3px);
+    border-color: var(--accent-gold);
+    background-color: rgba(201, 168, 76, 0.16);
+    color: var(--accent-gold);
+}
+
+.social-links svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Contact section: centred under the two buttons, with a gold eyebrow. */
+.social-invite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xl);
+}
+
+.social-label {
+    color: var(--accent-gold);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+/* Footer: left aligned under the brand blurb, mirrored for Arabic by flex. */
+.footer .social-links {
+    margin-top: var(--spacing-md);
+}
+
+/* ============================================
    FOOTER
    ============================================ */
 
@@ -1554,6 +1622,10 @@ section {
 }
 
 [dir="rtl"] .hero-eyebrow {
+    letter-spacing: normal;
+}
+
+[dir="rtl"] .social-label {
     letter-spacing: normal;
 }
 

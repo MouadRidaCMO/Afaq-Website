@@ -49,6 +49,23 @@ logo.png        the full lockup, header only
 Page order: hero → universities → scholarship → services → process → why → contact.
 Section ids: `universites`, `bourse`, `services`, `process`, `why`, `contact`.
 
+Social accounts, linked from both the contact section and the footer brand
+column via the `.social-links` component:
+
+| | |
+|---|---|
+| Facebook | `facebook.com/profile.php?id=61594426460308` (Afaq Abroad) |
+| Instagram | `instagram.com/afaq_abroad` |
+| WhatsApp | `wa.me/36707579165` |
+
+The markup is deliberately duplicated in the two places rather than injected by
+JavaScript, so the links survive with scripting off. **Change one, change the
+other.** The glyphs are solid brand marks, not the outline style used elsewhere
+on the page: an outlined Facebook or WhatsApp stops reading as its logo. Only
+the "Suivez-nous" eyebrow is translated (`social.follow`); the three names are
+identical in all three languages and live in `aria-label` attributes, which
+`setLang()` does not touch.
+
 ---
 
 ## How the three languages work
@@ -56,6 +73,18 @@ Section ids: `universites`, `bourse`, `services`, `process`, `why`, `contact`.
 French is written directly into `index.html`. English and Arabic are override
 dictionaries in `app.js` (`T.en`, `T.ar`), keyed by each element's `data-i18n`
 attribute. **134 keys currently.**
+
+**Arabic is what a visitor lands on.** French remains the source language of the
+markup, so the page still reads with JavaScript off and search engines index it
+as-is; only the rendered default changed. Order of precedence is `?lang=` in the
+URL, then a stored choice, then Arabic. The default is *not* written back to
+`localStorage` — only a deliberate switch is remembered — so a visitor who never
+touches the switcher keeps following the default if it ever changes again.
+
+An inline script in `<head>` resolves the language before the first paint and
+sets `lang`/`dir` plus the Cairo link there, because otherwise the page visibly
+flips from LTR French to RTL Arabic as it loads. **It duplicates the precedence
+logic in `initLang()`; change both together.**
 
 - A key missing from a dictionary silently falls back to the French in the
   markup. This is deliberate, and it is why `T.en` carries no city names: they
@@ -140,6 +169,12 @@ It has caught two real regressions that screenshots did not.
    early is stale by the time you scroll to it. Walk the whole page first to
    settle layout, then re-measure.
 
+**No bare `href="#"` anywhere.** The logo carried one, which parked a `#` in the
+address bar on the first click and then travelled into every link copied from
+there. It points at `/` now, with a click handler that scrolls to the top
+without reloading, and `stripEmptyHash()` cleans a trailing `#` off URLs already
+in circulation. Real section anchors are untouched.
+
 **Ampersands.** Playfair Display draws `&` as an ornate Et-ligature that reads
 as a bug. A `@font-face` scoped to `unicode-range: U+0026` pulls that one glyph
 from a plain grotesque. Do not remove `AmpersandFix` from `--serif-font`.
@@ -183,7 +218,8 @@ Learned across the build, worth respecting:
    Same edit as above.
 3. **Floating WhatsApp button.** Persistent bubble, bottom-right, linking to
    `https://wa.me/36707579165`. The entire conversion path is WhatsApp and it
-   currently requires scrolling to the foot of a long page.
+   currently requires scrolling to the contact section or the footer. Still
+   open: the social row added there is not a substitute for a persistent one.
 4. **`sitemap.xml` and `robots.txt`.** Neither exists.
 
 ### Polish
