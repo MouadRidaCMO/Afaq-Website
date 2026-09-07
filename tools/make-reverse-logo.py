@@ -20,6 +20,9 @@ from PIL import Image
 GOLD_HUE = 43 / 360.0  # --accent-gold #c9a84c
 SRC, DST = "logo.png", "logo-reverse.png"
 
+# logo.png puts the cap left of x=328 and the AFA9 wordmark right of it.
+WORDMARK_X = 328
+
 
 def main() -> None:
     src = Image.open(SRC).convert("RGBA")
@@ -38,12 +41,15 @@ def main() -> None:
                 continue
 
             if b > r + 25 and b > g + 15:
-                # Navy: same relative shading, gold hue, lifted so the darkest
-                # parts still separate from the deep blue behind them.
+                # The navy splits into two jobs, matching the footer this
+                # replaces: the cap keeps its form as a light silhouette, the
+                # AFA9 wordmark carries the brand's gold.
                 _, l, s = colorsys.rgb_to_hls(r / 255, g / 255, b / 255)
-                nl = min(0.95, 0.15 + 1.35 * l)
-                ns = max(0.40, min(0.62, s * 0.75))
-                nr, ng, nb = colorsys.hls_to_rgb(GOLD_HUE, nl, ns)
+                if x < WORDMARK_X:
+                    nl, ns, hue = min(0.97, 0.66 + 0.55 * l), 0.10, GOLD_HUE
+                else:
+                    nl, ns, hue = min(0.95, 0.15 + 1.35 * l), max(0.40, min(0.62, s * 0.75)), GOLD_HUE
+                nr, ng, nb = colorsys.hls_to_rgb(hue, nl, ns)
                 op[x, y] = (round(nr * 255), round(ng * 255), round(nb * 255), a)
                 continue
 
