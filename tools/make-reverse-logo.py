@@ -41,16 +41,19 @@ def main() -> None:
                 continue
 
             if b > r + 25 and b > g + 15:
-                # The navy splits into two jobs, matching the footer this
-                # replaces: the cap keeps its form as a light silhouette, the
-                # AFA9 wordmark carries the brand's gold.
-                _, l, s = colorsys.rgb_to_hls(r / 255, g / 255, b / 255)
                 if x < WORDMARK_X:
-                    nl, ns, hue = min(0.97, 0.66 + 0.55 * l), 0.10, GOLD_HUE
+                    # The cap is left alone. Its navy sits a shade above
+                    # --deep-blue and the gold outline and tassel draw the
+                    # shape, exactly as mark.png did in the old footer.
+                    op[x, y] = (r, g, b, a)
                 else:
-                    nl, ns, hue = min(0.95, 0.15 + 1.35 * l), max(0.40, min(0.62, s * 0.75)), GOLD_HUE
-                nr, ng, nb = colorsys.hls_to_rgb(hue, nl, ns)
-                op[x, y] = (round(nr * 255), round(ng * 255), round(nb * 255), a)
+                    # The wordmark has no outline to save it, so the navy goes
+                    # to gold — the colour the old footer set "Afaq" in.
+                    _, l, sat = colorsys.rgb_to_hls(r / 255, g / 255, b / 255)
+                    nl = min(0.95, 0.15 + 1.35 * l)
+                    ns = max(0.40, min(0.62, sat * 0.75))
+                    nr, ng, nb = colorsys.hls_to_rgb(GOLD_HUE, nl, ns)
+                    op[x, y] = (round(nr * 255), round(ng * 255), round(nb * 255), a)
                 continue
 
             lum = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255

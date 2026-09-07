@@ -1301,9 +1301,11 @@ section {
 /* The footer used to pair mark.png with a separate wordmark, on the theory
    that the cap kept its gold on a dark ground. It does not: the cap body is
    navy on navy and collapses into a smudge with a floating gold tassel.
-   logo-reverse.png splits the navy the way the old footer did: the cap
-   becomes a light silhouette, the AFA9 wordmark becomes gold. Lifting all of
-   it to white drained the brand out of the lockup. Regenerate it with
+   logo-reverse.png keeps the cap exactly as it is — its navy sits a shade
+   above --deep-blue and the gold outline draws the shape, which is what
+   mark.png did here before — and recolours only the AFA9 wordmark to gold,
+   the colour the old footer set the name in. Lifting the whole lockup to
+   white drained the brand out of it. Regenerate it with
    tools/make-reverse-logo.py whenever logo.png changes. */
 .footer-brand {
     margin-bottom: var(--spacing-sm);
