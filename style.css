@@ -1303,9 +1303,9 @@ section {
    navy on navy and collapses into a smudge with a floating gold tassel.
    logo-reverse.png keeps the cap exactly as it is — its navy sits a shade
    above --deep-blue and the gold outline draws the shape, which is what
-   mark.png did here before — and recolours only the AFA9 wordmark to gold,
-   the colour the old footer set the name in. Lifting the whole lockup to
-   white drained the brand out of it. Regenerate it with
+   mark.png did here before — and turns only the AFA9 wordmark white,
+   the way the old footer set the name beside mark.png. Recolouring the whole
+   lockup drained the brand out of it. Regenerate it with
    tools/make-reverse-logo.py whenever logo.png changes. */
 .footer-brand {
     margin-bottom: var(--spacing-sm);

@@ -17,7 +17,7 @@ Run this whenever logo.png changes:  python3 tools/make-reverse-logo.py
 import colorsys
 from PIL import Image
 
-GOLD_HUE = 43 / 360.0  # --accent-gold #c9a84c
+GOLD_HUE = 43 / 360.0  # --accent-gold #c9a84c, used for the anti-aliased edge
 SRC, DST = "logo.png", "logo-reverse.png"
 
 # logo.png puts the cap left of x=328 and the AFA9 wordmark right of it.
@@ -48,12 +48,9 @@ def main() -> None:
                     op[x, y] = (r, g, b, a)
                 else:
                     # The wordmark has no outline to save it, so the navy goes
-                    # to gold — the colour the old footer set "Afaq" in.
-                    _, l, sat = colorsys.rgb_to_hls(r / 255, g / 255, b / 255)
-                    nl = min(0.95, 0.15 + 1.35 * l)
-                    ns = max(0.40, min(0.62, sat * 0.75))
-                    nr, ng, nb = colorsys.hls_to_rgb(GOLD_HUE, nl, ns)
-                    op[x, y] = (round(nr * 255), round(ng * 255), round(nb * 255), a)
+                    # to white — flat navy on --deep-blue is the one part of
+                    # the lockup that actually disappears.
+                    op[x, y] = (255, 255, 255, a)
                 continue
 
             lum = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255
