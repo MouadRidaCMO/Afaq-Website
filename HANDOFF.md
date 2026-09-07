@@ -45,7 +45,7 @@ favicon.png     512px, tab optimised, tassel deliberately trimmed
 mark.png        full uncropped cap, NOW UNUSED by the site, kept as an asset
 Afa9 - Logo.png the full-res original the two lockups derive from, not deployed
 logo.png        the full lockup, header and privacy page
-logo-reverse.png the same lockup with the blues lifted to white, footer only
+logo-reverse.png the same lockup with the AFA9 wordmark in white, footer only
 ```
 
 Page order: hero → universities → scholarship → services → process → why → contact.
@@ -137,9 +137,13 @@ JPEG at q82. The whole deployed set is roughly 2MB.
 on the theory that the cap keeps its gold on a dark ground. It does not: the cap
 body is navy on navy and collapses into a smudge with a floating gold tassel,
 which is invisible in a thumbnail and obvious at 3x. `logo-reverse.png` is the
-header lockup with every blue pixel lifted to near-white and the gold left
-alone, so header and footer read as one brand. **Regenerate it in the same pass
-as `logo.png`.** `mark.png` and the old `wordmark.png` are no longer used by the
+header lockup with only the AFA9 wordmark recoloured, navy to white; the cap is
+untouched, because its navy sits above --deep-blue and the gold outline draws
+the shape. Lifting the whole lockup to near-white was the first attempt and it
+drained the brand out of it, leaving a pale smudge next to the gold headings. `tools/make-reverse-logo.py`
+does the conversion; it also fades out the white ground baked into `logo.png`'s
+edges and letter counters, which otherwise fringes the artwork on navy.
+**Regenerate it in the same pass as `logo.png`.** `mark.png` and the old `wordmark.png` are no longer used by the
 site; the latter was deleted, the former kept as an asset.
 
 **Deriving `logo.png` from a new original.** The supplied artwork is a large

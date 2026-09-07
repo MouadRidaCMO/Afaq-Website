@@ -1301,9 +1301,12 @@ section {
 /* The footer used to pair mark.png with a separate wordmark, on the theory
    that the cap kept its gold on a dark ground. It does not: the cap body is
    navy on navy and collapses into a smudge with a floating gold tassel.
-   logo-reverse.png is the same lockup as the header with the blues lifted to
-   white, so the footer and the header read as one brand. Regenerate it
-   alongside logo.png whenever the artwork changes. */
+   logo-reverse.png keeps the cap exactly as it is — its navy sits a shade
+   above --deep-blue and the gold outline draws the shape, which is what
+   mark.png did here before — and turns only the AFA9 wordmark white,
+   the way the old footer set the name beside mark.png. Recolouring the whole
+   lockup drained the brand out of it. Regenerate it with
+   tools/make-reverse-logo.py whenever logo.png changes. */
 .footer-brand {
     margin-bottom: var(--spacing-sm);
 }
@@ -1313,11 +1316,6 @@ section {
     height: 58px;
 }
 
-/* The wordmark is lifted straight out of logo.png and recoloured white, so
-   the footer carries the same letterforms and the same all-caps AFA9 as the
-   header lockup. Setting it in Playfair only ever approximated them, and the
-   navy original is unreadable on this ground. Regenerate it from logo.png if
-   the logo artwork ever changes. */
 .footer-section h4 {
     color: var(--accent-gold);
     font-family: var(--serif-font);
