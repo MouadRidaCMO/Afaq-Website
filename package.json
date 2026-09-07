@@ -1,11 +1,11 @@
 {
   "name": "afaq-website",
   "version": "1.0.0",
-  "description": "AFAQ - Student recruitment agency website",
+  "description": "AFA9 - Student recruitment agency website",
   "scripts": {
     "build": "echo 'No build needed - static site'"
   },
-  "keywords": ["afaq", "university", "recruitment"],
+  "keywords": ["afa9", "university", "recruitment"],
   "author": "Mouad Rida",
   "license": "MIT"
 }

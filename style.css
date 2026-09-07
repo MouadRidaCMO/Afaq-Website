@@ -1,5 +1,5 @@
 /* ============================================
-   AFAQ Website Styles
+   AFA9 Website Styles
    ============================================ */
 
 /* Playfair Display draws & as an ornate Et-ligature. unicode-range pulls
@@ -1005,12 +1005,12 @@ section {
 }
 
 /* ============================================
-   WHY AFAQ SECTION
+   WHY AFA9 SECTION
    Bento rather than four equal boxes: a dark feature tile, two squares,
    then a wide closer.
    ============================================ */
 
-.why-afaq {
+.why-afa9 {
     background-color: var(--light-gray);
 }
 
@@ -1313,7 +1313,7 @@ section {
 }
 
 /* The wordmark is lifted straight out of logo.png and recoloured white, so
-   the footer carries the same letterforms and the same all-caps AFAQ as the
+   the footer carries the same letterforms and the same all-caps AFA9 as the
    header lockup. Setting it in Playfair only ever approximated them, and the
    navy original is unreadable on this ground. Regenerate it from logo.png if
    the logo artwork ever changes. */

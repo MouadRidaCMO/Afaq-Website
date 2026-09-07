@@ -202,10 +202,23 @@ Learned across the build, worth respecting:
 - **No FAQ and no pricing page.** Deliberate: questions should route to WhatsApp
   rather than being answered on the site.
 - **No em dashes in body copy.** Fine in titles, not in sentences.
-- **"Afaq", never "AFAQ"** in *text*. The all-caps form belongs to the logo
+- **The brand is "Afa9", not "Afaq".** Renamed because the Q form was being
+  read as the Darija word *afaq*, and because 9 is how ق is written in Moroccan
+  Arabizi, so Afa9 transliterates آفاق exactly. **The Arabic spelling آفاق is
+  unchanged everywhere** — that is the whole point of the 9.
+
+  Four things deliberately keep the old spelling because they are live
+  infrastructure, not copy: the domain `afaq.study`, the mailbox
+  `contact@afaq.study`, the Instagram handle `afaq_abroad`, and the
+  `afaq-lang` localStorage key (renaming that key would silently reset every
+  returning visitor's saved language). Change any of those only alongside the
+  real-world account.
+
+- **"Afa9", never "AFA9"** in *text*. The all-caps form belongs to the logo
   artwork. `wordmark.png` counts as artwork, not text: it is the AFAQ lettering
   cut straight out of `logo.png` and recoloured white so the footer brand
-  matches the header lockup exactly. Setting it in Playfair only ever
+  matches the header lockup exactly. **It still shows the old AFAQ artwork and
+  must be regenerated from the new logo.** Setting it in Playfair only ever
   approximated the letterforms, and the navy original is unreadable on the
   footer's ground. Regenerate it from `logo.png` if the logo ever changes.
   Body copy, including the copyright line, still reads "Afaq".
